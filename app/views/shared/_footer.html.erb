@@ -1,9 +1,29 @@
 <div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fa fa-github"></i></a>
-    <a href="#"><i class="fa fa-twitter"></i></a>
-    <a href="#"><i class="fa fa-linkedin"></i></a>
+  <div class="footer-left">
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag "logo.png" %>
+    <% end %>
   </div>
-  <div class="footer-copyright">
+
+  <div class="footer-center">
+    <div>
+      <i class="fa fa-map-marker"></i>
+      <p><span>16 Villa Gaudelet</span> Paris, France</p>
+    </div>
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="mailto:support@tabata.com">support@tabata.com</a></p>
+    </div>
   </div>
-</div>
+
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span>A propos de Tabata</span>
+      Vous êtes dans l'urgence et avez besoin d'une nounou d'enfer. Tabata vous présente les nouveaux anges-gardiens de vos enfants.
+    </p>
+    <div class="footer-icons">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+    </div>
+  </div>
