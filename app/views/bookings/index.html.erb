@@ -5,8 +5,8 @@
 
 <% unless current_user.nanny_offers.empty? then %>
   <p>Vos demandes client :</p>
-    <p><%= "Vous avez #{current_user.nanny_offers.bookings.count} demande client" %></p>
-    <%= current_user.nanny_offers.bookings.each do |customer_request| %>
+    <p><%= "Vous avez #{current_user.nanny_offers.last.bookings.count} demande client" %></p>
+    <%= current_user.nanny_offers.last.bookings.each do |customer_request| %>
       <p><%= customer_request %></p>
       <br>
     <% end %>
@@ -16,7 +16,7 @@
 <br>
 <% unless current_user.bookings.empty? then %>
   <p>Vos réservations effectuées auprès de nourrices :</p>
-  <p><%= "Vous avez #{current_user.bookings.count} demandes auprès de nourrices" %></p>
+  <p><%= "Vous avez passé #{current_user.bookings.count} demandes auprès de nourrices" %></p>
     <%= current_user.bookings.each do |my_request| %>
       <p><%= my_request %></p>
       <br>
