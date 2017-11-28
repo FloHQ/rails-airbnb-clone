@@ -12,6 +12,7 @@ class NannyOffersController < ApplicationController
   end
 
   def show
+    @nanny_offer = NannyOffer.find(params[:id])
   end
 
   def update
