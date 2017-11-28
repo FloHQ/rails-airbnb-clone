@@ -1,9 +1,21 @@
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended that you check this file into your version control system.
+
 ActiveRecord::Schema.define(version: 20171128104711) do
 
- # These are extensions that must be enabled in order to support this database
+  # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
- create_table "bookings", force: :cascade do |t|
+  create_table "bookings", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "price"
     t.datetime "created_at", null: false
@@ -13,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171128104711) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
- create_table "nanny_offers", force: :cascade do |t|
+  create_table "nanny_offers", force: :cascade do |t|
     t.bigint "user_id"
     t.date "start_date"
     t.date "end_date"
@@ -22,7 +34,7 @@ ActiveRecord::Schema.define(version: 20171128104711) do
     t.index ["user_id"], name: "index_nanny_offers_on_user_id"
   end
 
- create_table "reviews", force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "description"
     t.bigint "user_id"
@@ -31,7 +43,7 @@ ActiveRecord::Schema.define(version: 20171128104711) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
- create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -58,7 +70,7 @@ ActiveRecord::Schema.define(version: 20171128104711) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
- add_foreign_key "bookings", "nanny_offers"
+  add_foreign_key "bookings", "nanny_offers"
   add_foreign_key "bookings", "users"
   add_foreign_key "nanny_offers", "users"
   add_foreign_key "reviews", "nanny_offers"
