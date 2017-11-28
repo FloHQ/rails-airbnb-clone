@@ -1,2 +1,12 @@
-<h1>NannyOffers#new</h1>
-<p>Find me in app/views/nanny_offers/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h2> Nouvelle offre</h2>
+      <%= simple_form_for [@nanny_offer] do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.submit class: "btn btn-yours", value: "Créer l'offre" %>
+      <% end %>
+    </div>
+  </div>
+</div>

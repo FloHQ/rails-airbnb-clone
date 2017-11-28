@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128104711) do
+ActiveRecord::Schema.define(version: 20171128142509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "nanny_offer_id"
+    t.string "date"
     t.index ["nanny_offer_id"], name: "index_bookings_on_nanny_offer_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20171128104711) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price"
     t.index ["user_id"], name: "index_nanny_offers_on_user_id"
   end
 
