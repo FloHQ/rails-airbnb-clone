@@ -5,10 +5,11 @@
           <div class="col-xs-6 col-sm-8 col-lg-12">
             <h1>Trouvez une nounou <strong>en urgence</strong></h1>
             <h3>Plus de 100 nounous disponibles immédiatement près de chez vous</h3>
-            <p><%= form_tag(root_path, method: :get) do %>
-              <%= text_field_tag :query %>
-              <%= submit_tag 'Rechercher', class: " btn btn-search"%></p>
-            <% end %>
+<!--             <p><%#= form_tag(root_path, method: :get) do %>
+              <%#= text_field_tag :query %>
+              <%#= submit_tag 'Rechercher', class: " btn btn-search"%></p>
+            <%# end %> -->
+            <p><%= link_to 'All offers', nanny_offers_path, class: "btn btn-yours" %></p>
           </div>
       </div>
     </div>
