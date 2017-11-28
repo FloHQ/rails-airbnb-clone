@@ -35,7 +35,7 @@ class NannyOffersController < ApplicationController
 
   def destroy
     @nanny_offer = NannyOffer.find(params[:id])
-    if nany_offer.user == current_user
+    if nanny_offer.user == current_user
       @nanny_offer.destroy!
       redirect_to nanny_offers_path
     else
