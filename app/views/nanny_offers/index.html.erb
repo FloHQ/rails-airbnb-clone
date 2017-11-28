@@ -1,116 +1,77 @@
-<div class="navbar-minimalist">
-  <img src="images/logo.png">
-</div>
-
 <div class="content">
   <div class="cards-container">
     <div class="row">
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/rio.jpg)">
-          Rio
+      <div class="col-xs-12 col-sm-4 col-lg-2">
+        <div class="nanny-card">
+          <div class="card-image" style="background-image: url('<%= asset_path "clement.jpg" %>')";></div>
+          <div class="flat-card-content">
+            <div class="flat-card-title">
+              <h4>Clément</h4>
+            </div>
+              <p></p>
+            </div>
+
         </div>
       </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/berlin.jpg)">
-          Berlin
+      <div class="col-xs-12 col-sm-4 col-lg-2">
+        <div class="card" style="background-image: url('<%= asset_path "adrien.jpg" %>')";>
+          Adrien
         </div>
       </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/shanghai.jpg)">
-          Shanghai
+      <div class="col-xs-12 col-sm-4 col-lg-2">
+        <div class="card" style="background-image: url('<%= asset_path "aurelien.jpg" %>')";>
+          Aurélien
         </div>
       </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/barcelona.jpg)">
-          Barcelona
+      <div class="col-xs-12 col-sm-4 col-lg-2">
+        <div class="card" style="background-image: url('<%= asset_path "edouard.jpg" %>')";>
+          Edouard
         </div>
       </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/rio.jpg)">
-          Rio
+      <div class="col-xs-12 col-sm-4 col-lg-2">
+        <div class="card" style="background-image: url('<%= asset_path "gabriel.jpg" %>')";>
+          Gabriel
         </div>
       </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/berlin.jpg)">
-          Berlin
+      <div class="col-xs-12 col-sm-4 col-lg-2">
+        <div class="card" style="background-image: url('<%= asset_path "julien.jpg" %>')";>
+          Julien
         </div>
       </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/shanghai.jpg)">
-          Shanghai
+      <div class="col-xs-12 col-sm-4 col-lg-2">
+        <div class="card" style="background-image: url('<%= asset_path "kevin.jpg" %>')";>
+          Kévin
         </div>
       </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/barcelona.jpg)">
-          Barcelona
+      <div class="col-xs-12 col-sm-4 col-lg-2">
+        <div class="card" style="background-image: url('<%= asset_path "blondy.jpg" %>')";>
+          Blondy
         </div>
       </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/rio.jpg)">
-          Rio
+      <div class="col-xs-12 col-sm-4 col-lg-2">
+        <div class="card" style="background-image: url('<%= asset_path "come.jpg" %>')";>
+          Côme
         </div>
       </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/berlin.jpg)">
-          Berlin
+      <div class="col-xs-12 col-sm-4 col-lg-2">
+        <div class="card" style="background-image: url('<%= asset_path "nicolas.jpg" %>')";>
+          Nicolas
         </div>
       </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/shanghai.jpg)">
-          Shanghai
+      <div class="col-xs-12 col-sm-4 col-lg-2">
+        <div class="card" style="background-image: url('<%= asset_path "mathieu.jpg" %>')";>
+          Mathieu
         </div>
       </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/barcelona.jpg)">
-          Barcelona
+      <div class="col-xs-12 col-sm-4 col-lg-2">
+        <div class="card" style="background-image: url('<%= asset_path "jobrann.jpg" %>')";>
+          Jobrann
         </div>
       </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/rio.jpg)">
-          Rio
-        </div>
-      </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/berlin.jpg)">
-          Berlin
-        </div>
-      </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/shanghai.jpg)">
-          Shanghai
-        </div>
-      </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/barcelona.jpg)">
-          Barcelona
-        </div>
-      </div>
-      <div class="col-xs-12 col-lg-4">
-        <div class="card" style="background-image: url(images/rio.jpg)">
-          Rio
-        </div>
-      </div>n
     </div>
   </div>
-  <div id="map"></div>
 </div>
 
-<!-- Gmaps js: building the map -->
-<script>
-  function initMap() {
-    // Create a map object and specify the DOM element for display.
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 52.5206, lng: 13.4098},
-      scrollwheel: false,
-      zoom: 8
-    });
-  }
-</script>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- Gmaps JavaScript -->
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzER7O10ZOUp7FloJzMe2r8X1GIQhgt7Q&callback=initMap">
-    </script>
+<div id="map">
+</div>
+</div>
