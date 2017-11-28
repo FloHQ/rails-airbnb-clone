@@ -1,15 +1,30 @@
 .nannycard {
+  height: 250px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 1px;
+  margin: 15px 10px;
+  background-color: #C25657;
+}
+
+.nannycard-image {
   background-size: cover;
   background-position: center;
   height: 150px;
-  border-radius: 1px;
-  margin: 15px 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
-  font-size: 25px;
-  color: white;
+}
+
+.nannycard-content {
+  height: 100px;
+  justify-content: space-around;
+  font-size: 13px;
   font-weight: bolder;
-  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 0.5px rgba(245, 206, 209, 1);
+}
+
+.nannycard:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
