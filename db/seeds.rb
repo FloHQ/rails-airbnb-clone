@@ -41,3 +41,18 @@ User.where(first_name: "Nanny").each do |n|
 end
 
 puts "Offers seeded"
+
+puts "Seeding Booking"
+
+  booking = Booking.new
+  puts booking
+  booking.nanny_offer = NannyOffer.first
+  puts booking.nanny_offer
+  booking.user = User.first
+  puts booking.user
+  booking.price = 50
+  puts booking.price
+  booking.date = "12/12/12"
+  booking.save!
+
+puts "Booking seeded"
