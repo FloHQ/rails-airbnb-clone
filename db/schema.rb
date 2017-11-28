@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127155042) do
+ActiveRecord::Schema.define(version: 20171128104252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20171127155042) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "nanny_offer_id"
+    t.index ["nanny_offer_id"], name: "index_bookings_on_nanny_offer_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -40,6 +42,15 @@ ActiveRecord::Schema.define(version: 20171127155042) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_nanny_offers_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "description"
+    t.bigint "user_id"
+    t.bigint "nanny_offer_id"
+    t.index ["nanny_offer_id"], name: "index_reviews_on_nanny_offer_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,8 +76,11 @@ ActiveRecord::Schema.define(version: 20171127155042) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "nanny_offers"
   add_foreign_key "bookings", "users"
   add_foreign_key "nanny_daily_offers", "bookings"
   add_foreign_key "nanny_daily_offers", "nanny_offers"
   add_foreign_key "nanny_offers", "users"
+  add_foreign_key "reviews", "nanny_offers"
+  add_foreign_key "reviews", "users"
 end
