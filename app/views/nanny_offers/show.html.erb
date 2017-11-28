@@ -1,9 +1,10 @@
-
-
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(188, 78, 156, 0.3) 90%, rgba(248, 7, 89, 0.3) 90%), url('<%= asset_path "nanny-offer-show" %>');">
-</div>
-
 <!-- <div class="show-container"> -->
+    <div class="banner" style="
+    background-image: linear-gradient(-225deg, rgba(188, 78, 156, 0.3) 90%, rgba(248, 7, 89, 0.3) 90%), url('<%= asset_path "nanny-offer-show" %>');
+    /*height: 200px;
+*/    ">
+    </div>
+
     <div class="container">
       <div class="row">
           <div class="col-xs-12 col-md-6">
@@ -11,9 +12,14 @@
             <%= @nanny_offer.user.last_name  %>
             </h3>
 
-            <span class="presentation-text">
+            <div >
+              <span class="presentation-text">
               Nom, prénom, âge, adresse
-            </span>
+              </span>
+            </div>
+
+            <%= render "shared/link_page_profil" %>
+
 
             <i class="fa fa-child" aria-hidden="true"></i>
             <span class="custom-icon-text">
@@ -27,13 +33,37 @@
             <span class="custom-icon-text">
             ascenseur disponible
             </span>
+
+            <h3>Présentation</h3>
+            <p>
+              Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+            </p>
+
+            <h3>Commentaires</h3>
+            <p>
+              Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+            </p>
+
+
+            <h3>La Nounou</h3>
+            <p id="test">
+              Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+            </p>
+
+            <h3>Emplacement</h3>
+            <p>
+              Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+            </p>
+
           </div>
 
           <div class= "col-xs-12 col-md-2">
             <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="avatar-large"/>
           </div>
 
-          <div class="col-xs-12 col-md-4">
+
+
+          <div class="col-xs-12 col-md-4 calendar">
             date d'arrivée
             <input class="form-control input-sm" type="text" placeholder="saisissez la date d'arrivée de votre enfant">
             date de départ
