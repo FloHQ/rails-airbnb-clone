@@ -10,7 +10,11 @@
       <!-- Links -->
       <%= link_to "Mentions Légales", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Je suis une nounou", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Connexion", root_path, class: " btn btn-yours" %>
+      <% if user_signed_in? %>
+        <%= link_to('Déconnexion', destroy_user_session_path, method: :delete, class: "btn btn-yours") %>
+      <% else %>
+        <%= link_to('Connexion', new_user_session_path, class: "btn btn-yours")  %>
+      <% end %>
     </div>
 
     <!-- Dropdown list appearing on mobile only -->
