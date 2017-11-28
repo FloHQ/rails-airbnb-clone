@@ -12,5 +12,4 @@ Rails.application.routes.draw do
   resources :nanny_offers
 
   resources :bookings
-  end
 end
