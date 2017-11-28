@@ -1,23 +1,29 @@
 class NannyOffersController < ApplicationController
- # def index
-
+  # def index
   # end
 
   # def show
   # end
 
   def new
-    @user = User.find(params[:user_id])
-    @nanny_offer = NannyOffer.new
+    if current_user
+      @nanny_offer = NannyOffer.new
+    else
+      redirect_to new_user_session_path, notice: "Vous n'êtes pas connecté à votre compte utilisateur."
+    end
   end
 
   def create
-    @nanny_offer = NannyOffer.new(params[:nanny_offer])
-    @nanny_offer.user = User.find(params[:user_id])
-    if @nanny_offer.save
-      redirect_to user_path(@nanny_offer.user)
+    if current user
+      @nanny_offer = NannyOffer.new(nanny_offer_params)
+      @nanny_offer.user = current_user
+      if @nanny_offer.save
+        redirect_to user_path(@nanny_offer)
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to new_user_session_path, notice: "Vous n'êtes pas connecté à votre compte utilisateur."
     end
   end
 
@@ -29,14 +35,17 @@ class NannyOffersController < ApplicationController
 
   def destroy
     @nanny_offer = NannyOffer.find(params[:id])
-    @nanny_offer.destroy!
-    redirect_to nanny_offers_path
+    if nany_offer.user == current_user
+      @nanny_offer.destroy!
+      redirect_to nanny_offers_path
+    else
+     redirect_to new_user_session_path, notice: "Vous ne disposez pas des droits d'accès."
+    end
   end
 
   private
-
-  # A FAIRE
+  # To Finish when View is done
   # def nanny_offer_params
-  #   params.require(:nanny_offer).permit(:description, :ingredient_id)
+  #   params.require(:nanny_offer).permit(:description)
   # end
 end
