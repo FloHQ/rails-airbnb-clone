@@ -12,11 +12,11 @@ class NannyOffersController < ApplicationController
   end
 
   def create
-    if current user
+    if current_user
       @nanny_offer = NannyOffer.new(nanny_offer_params)
       @nanny_offer.user = current_user
       if @nanny_offer.save
-        redirect_to user_path(@nanny_offer)
+        redirect_to nanny_offer_path(@nanny_offer)
       else
         render :new
       end
@@ -49,7 +49,7 @@ class NannyOffersController < ApplicationController
 
   private
   # To Finish when View is done
-  # def nanny_offer_params
-  #   params.require(:nanny_offer).permit(:description)
-  # end
+  def nanny_offer_params
+    params.require(:nanny_offer).permit(:start_date, :end_date)
+  end
 end

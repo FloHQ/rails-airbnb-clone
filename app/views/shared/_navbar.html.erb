@@ -9,7 +9,8 @@
 
       <!-- Links -->
       <%= link_to "Mentions Légales", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Je suis une nounou", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <!-- anciennement "je suis une nounou" => A adapter -->
+      <%= link_to "Nouvelle offre", new_nanny_offer_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% if user_signed_in? %>
       <!-- A MAJ une fois le controlleur de profil créé -->
         <%= link_to "Mon profil", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
