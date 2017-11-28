@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :nanny_offers
+  has_many :reviews
+  has_many :bookings
 end
