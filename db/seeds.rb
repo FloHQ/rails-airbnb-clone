@@ -37,7 +37,22 @@ User.where(first_name: "Nanny").each do |n|
   puts offer.start_date
   offer.end_date =  DateTime.new(2017,12,19)
   puts offer.end_date
+  offer.price = (10..100).to_a.sample
+  puts offer.price
   offer.save!
 end
 
 puts "Offers seeded"
+
+puts "Seeding Booking"
+
+  booking = Booking.new
+  puts booking
+  booking.nanny_offer = NannyOffer.first
+  puts booking.nanny_offer
+  booking.user = User.first
+  puts booking.user
+  booking.date = "#{booking.nanny_offer.start_date} - #{booking.nanny_offer.end_date}"
+  booking.save!
+
+puts "Booking seeded"

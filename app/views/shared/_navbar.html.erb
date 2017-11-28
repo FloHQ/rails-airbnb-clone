@@ -10,7 +10,13 @@
       <!-- Links -->
       <%= link_to "Mentions Légales", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Je suis une nounou", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Connexion", root_path, class: " btn btn-yours" %>
+      <% if user_signed_in? %>
+      <!-- A MAJ une fois le controlleur de profil créé -->
+        <%= link_to "Mon profil", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to('Déconnexion', destroy_user_session_path, method: :delete, class: "btn btn-yours") %>
+      <% else %>
+        <%= link_to('Connexion', new_user_session_path, class: "btn btn-yours")  %>
+      <% end %>
     </div>
 
     <!-- Dropdown list appearing on mobile only -->
