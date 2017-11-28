@@ -1,5 +1,18 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(201, 214, 255, 0.4) 0%, rgba(226, 226, 226, 0.4) 50%), url('<%= asset_path "banner-home-photo.jpg"  %>');">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(188, 78, 156, 0.3) 90%, rgba(248, 7, 89, 0.3) 90%), url('<%= asset_path "banner-home-photo.jpg"  %>');">
   <div class="banner-content">
-    <h1>Trouvez une nounou en urgence</h1>
+    <div class="container">
+      <div class="row">
+          <div class="col-xs-6 col-sm-8 col-lg-12">
+            <h1>Trouvez une nounou <strong>en urgence</strong></h1>
+            <h3>Plus de 100 nounous disponibles immédiatement près de chez vous</h3>
+            <p><%= form_tag(root_path, method: :get) do %>
+              <%= text_field_tag :query %>
+              <%= submit_tag 'Rechercher', class: " btn btn-search"%></p>
+            <% end %>
+          </div>
+      </div>
     </div>
+  </div>
 </div>
+
+
