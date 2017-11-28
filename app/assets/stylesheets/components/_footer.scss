@@ -17,17 +17,7 @@
   vertical-align: top;
 }
 
-/* Footer left */
-
-.footer .footer-left{
-  width: 40%;
-}
-
 /* Footer Center */
-
-.footer .footer-center{
-  width: 35%;
-}
 
 .footer .footer-center i{
   background-color: white;
@@ -67,11 +57,7 @@
 }
 
 /* Footer Right */
-
-.footer .footer-right{
-  width: 20%;
-}
-
+//
 .footer .footer-company-about{
   line-height: 20px;
   color:  #616668;
@@ -117,7 +103,6 @@
   .footer.footer-center,
   .footer.footer-right{
     display: block;
-    width: 100%;
     margin-bottom: 40px;
     text-align: center;
   }

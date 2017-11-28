@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # routes for users
-  resources :users do
-    # routes for nanny offers
-    resources :nanny_offers
-  end
+  resources :users
+
+  resources :nanny_offers
+
+  resources :bookings
 end
