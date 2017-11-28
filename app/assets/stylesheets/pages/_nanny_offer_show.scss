@@ -1,5 +1,10 @@
+
+
+.banner {
+  background-position: center;
+}
 .show-container {
-  height: 500px;
+  height: 200px;
 }
 
 .custom-icon {
@@ -27,8 +32,17 @@
 .avatar-large {
   width: 90px;
   border-radius: 50%;
+  padding-top: 10px;
 }
 
 .presentation-text {
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size: 17px;
+  font-weight:300;
+  letter-spacing:0.2px;
+  line-height: 22px;
+}
 
+.calendar {
+  margin-top: 10px;
 }
