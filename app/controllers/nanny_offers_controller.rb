@@ -1,7 +1,8 @@
 class NannyOffersController < ApplicationController
-  # def index
-  # end
 
+  def index
+    @nanny_offers = NannyOffer.all
+  end
 
   def new
     if current_user

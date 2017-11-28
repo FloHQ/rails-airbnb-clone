@@ -1,5 +1,16 @@
 <div class="content">
   <div class="cards-container">
+    <% @nanny_offers.each do |u| %>
+    <div class="col-xs-12 col-sm-4 col-lg-2">
+      <div class="nannycard">
+        <div class="nannycard-image" style="background-image: url('<%= asset_path "pauline.jpg" %>')";></div>
+        <div class="nannycard-content">
+          <h4><%= u.user.first_name %> <%= u.user.last_name %> </h4>
+          <p>TEST</p>
+        </div>
+      </div>
+    </div>
+    <% end %>
     <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
         <div class="nannycard-image" style="background-image: url('<%= asset_path "pauline.jpg" %>')";></div>
