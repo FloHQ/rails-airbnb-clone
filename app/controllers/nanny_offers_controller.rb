@@ -2,8 +2,6 @@ class NannyOffersController < ApplicationController
   # def index
   # end
 
-  # def show
-  # end
 
   def new
     if current_user
@@ -27,8 +25,14 @@ class NannyOffersController < ApplicationController
     end
   end
 
+
+  def show
+    @nanny_offer = NannyOffer.find(params[:id])
+  end
+
   # def edit
   # end
+
 
   # def update
   # end
