@@ -1,7 +1,43 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'date'
+
+puts 'cleaning the db'
+Booking.destroy_all
+NannyOffer.destroy_all
+User.destroy_all
+puts 'db cleaned'
+
+puts "seeding Users"
+
+users = [["Parent", "One"],["Parent","Two"],["Nanny","One"],["Nanny","Two"]]
+
+users.each do |u|
+  user = User.new
+  user.email = "#{u[0]}#{u[1]}@example.com"
+  user.password = 'valid_password'
+  user.password_confirmation = 'valid_password'
+  user.first_name = "#{u[0]}"
+  user.last_name = "#{u[1]}"
+  user.phone_number = "+33 (0) 1 02 03 04 05"
+  user.age = "30"
+  user.gender = ["male", "female"].sample
+  user.save!
+end
+
+puts "Users seeded"
+
+
+puts "Seeding offers"
+
+User.where(first_name: "Nanny").each do |n|
+  offer = NannyOffer.new
+  puts offer
+  offer.user_id = n.id
+  puts offer.user_id
+  offer.start_date =  DateTime.new(2017,12,01)
+  puts offer.start_date
+  offer.end_date =  DateTime.new(2017,12,19)
+  puts offer.end_date
+  offer.save!
+end
+
+puts "Offers seeded"
