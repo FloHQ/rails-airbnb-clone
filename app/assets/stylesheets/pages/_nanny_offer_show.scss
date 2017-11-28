@@ -50,3 +50,28 @@
 .calendar {
   margin-top: 10px;
 }
+
+h3 {
+  color:#484848;
+  font-family:Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size:17px;
+  letter-spacing:0.2px;
+  line-height: 22px;
+}
+
+p {
+  color: #484848;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  line-height: 22px;
+}
+
+.list-inline {
+  color: #008489;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  cursor: pointer;
+  user-select: auto;
+  font-size: 17px;
+}
