@@ -31,12 +31,17 @@ class NannyOffersController < ApplicationController
     @nanny_offer = NannyOffer.find(params[:id])
   end
 
-  # def edit
-  # end
+  def edit
+    @nanny_offer = NannyOffer.find(params[:id])
+  end
 
 
-  # def update
-  # end
+  def update
+    @nanny_offer = NannyOffer.find(params[:id])
+    @nanny_offer.update(nanny_offer_params)
+
+    redirect_to nanny_offer_path(@nanny_offer)
+  end
 
   def destroy
     @nanny_offer = NannyOffer.find(params[:id])
