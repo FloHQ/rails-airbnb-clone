@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def index
     if current_user
-      @bookings = Booking.find(current_user)
+      @bookings = Booking.find(current_user.id)
     else
       redirect_to new_user_session_path, notice: "Vous n'êtes pas connecté à votre compte utilisateur."
     end
