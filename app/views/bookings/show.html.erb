@@ -1,2 +1,7 @@
 <h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<p>Ceci est un test pour vérifier que le back fonctionne:</p>
+<p> Client : <%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
+<p> Nanny : <%= @booking.nanny_offer.user.first_name %> <%= @booking.nanny_offer.user.last_name %></p>
+<p> Prix <%= @booking.nanny_offer.price %> </p>
+
+<p> Date <%= @booking.date %> </p>
