@@ -16,7 +16,7 @@ class NannyOffersController < ApplicationController
       @nanny_offer = NannyOffer.new(nanny_offer_params)
       @nanny_offer.user = current_user
       if @nanny_offer.save
-        redirect_to user_path(@nanny_offer)
+        redirect_to nanny_offer_path(@nanny_offer)
       else
         render :new
       end
