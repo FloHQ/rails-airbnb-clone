@@ -5,6 +5,7 @@
       <%= simple_form_for [@nanny_offer] do |f| %>
         <%= f.input :start_date %>
         <%= f.input :end_date %>
+        <%= f.input :price %>
         <%= f.submit class: "btn btn-yours", value: "Créer l'offre" %>
       <% end %>
     </div>
