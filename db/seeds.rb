@@ -27,20 +27,22 @@ end
 puts "Users seeded"
 
 
-puts "Seeding offers"
+# puts "Seeding offers"
 
-nanny_id = (User.first.id..User.last.id).to_a.sample(5)
+# nanny_id = (User.first.id..User.last.id).to_a.sample(5)
 
-nanny_id.each do |id|
-  offer = NannyOffer.new
-  offer.user_id = id
-  offer.start_date =  DateTime.new(2017,12,01)
-  offer.end_date =  DateTime.new(2017,12,19)
-  offer.price = (100..200).to_a.sample
-  offer.save!
-end
+# nanny_id.each do |id|
+#   offer = NannyOffer.new
+#   offer.user_id = id
+#   offer.start_date =  DateTime.new(2017,12,01)
+#   offer.end_date =  DateTime.new(2017,12,19)
+#   offer.price = (100..200).to_a.sample
+#   offer.save!
+# end
 
-puts "Offers seeded"
+# puts NannyOffer.last
+
+# puts "Offers seeded"
 
 # puts "Seeding Booking"
 

@@ -7,7 +7,6 @@ class NannyOffersController < ApplicationController
     @users.each do |user|
       users_id_array << user.id
     end
-    binding.pry
     @nanny_offers = NannyOffer.where(user_id: users_id_array)
     @markers = @nanny_offers.map do |nanny_offer|
       {

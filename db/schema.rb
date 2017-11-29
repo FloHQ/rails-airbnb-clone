@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 20171129140135) do
     t.string "appartment_rules"
     t.string "appartment_address"
     t.string "appartment_photo"
-    t.string "short_description"
     t.float "latitude"
     t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
