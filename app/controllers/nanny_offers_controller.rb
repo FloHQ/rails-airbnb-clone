@@ -56,6 +56,6 @@ class NannyOffersController < ApplicationController
   private
   # To Finish when View is done
   def nanny_offer_params
-    params.require(:nanny_offer).permit(:start_date, :end_date)
+    params.require(:nanny_offer).permit(:start_date, :end_date, :price)
   end
 end
