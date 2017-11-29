@@ -7,7 +7,7 @@
           <% if u.user.profile_picture.present?
               image_url = u.user.profile_picture
             else
-             @ if u.user.gender === "male"
+              if u.user.gender === "male"
                 image_url = asset_path 'no_profile_picture_male.jpg'
               else
                 image_url = asset_path 'no_profile_picture_female.jpg'
@@ -43,7 +43,7 @@
       <div class="nannycard">
         <div class="nannycard-image" style="background-image: url('<%= asset_path "aurelien.jpg" %>')";></div>
         <div class="nannycard-content">
-          <h4><a href="/nanny_offers/19"> Aurélien</a></h4>
+          <h4><a href="/nanny_offers/19">Aurélien</a> </h4>
           <p>Héros des enfants</p>
         </div>
       </div>
