@@ -1,2 +1,35 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<div class="container">
+  <div class="booking-confirmation">
+    <h2>Confirmer votre réservation</h2>
+    <ul class="inbox">
+      <li class="booking-element">
+        <img src="<%= cl_image_tag @nanny_offer.user.profile_picture %>" alt="" class="avatar-large">
+        <div class="booking-element-name">
+          <h3><%= @nanny_offer.user.first_name %> <%= @nanny_offer.user.last_name %></h3>
+        </div>
+        <div class="booking-element-body">
+          <p><strong></strong></p>
+        </div>
+        <div class="booking-element-status">
+          <p>
+            <div class="box">
+              <a class="button" href="#popup1">Je confirme la réservation</a>
+            </div>
+        </div>
+      </li>
+  </div>
+  <br>
+  <br>
+  </div>
+</div>
+
+
+
+<div id="popup1" class="overlay">
+  <div class="popup">
+    <a class="close" href="#">&times;</a>
+    <div class="content">
+      Votre réservation est bien confirmée
+    </div>
+  </div>
+</div>
