@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.nanny_offer = @nanny_offer
     if @review.save
-      redirect_to nanny_offer_review_path(@nanny_offer, @review)
+      redirect_to nanny_offer_path(@nanny_offer)
     else
       render:new
     end
