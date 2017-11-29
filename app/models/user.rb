@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :nanny_offers
   has_many :reviews
   has_many :bookings
+
+  mount_uploader :profile_picture, PhotoUploader
+  mount_uploader :appartment_picture, PhotoUploader
 end
