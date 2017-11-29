@@ -8,10 +8,10 @@
   <p>Genre        : <%= @user.gender %></p>
   <p>Téléphone    : <%= @user.phone_number %></p>
   <p>Age          : <%= @user.age %></p>
-  <!-- <p>Profile pic  : <%= @user.profile_picture %></p> -->
+  <p>Profile pic  : <%= cl_image_tag @current_user.profile_picture, height: 150, width: 200, crop: :fill %></p>
   <p>Appartement  :</p>
   <p> Equipement  : <%= @user.appartment_equipment %></p>
   <p> Règles      : <%= @user.appartment_rules %></p>
   <p> Addresse    : <%= @user.appartment_address %></p>
-  <!-- <p> Photo   : <%= @user.appartment_photo %></p> -->
+  <p> Photo   : <%= cl_image_tag @current_user.appartment_photo, height: 300, width: 400, crop: :fill %></p>
 </div>

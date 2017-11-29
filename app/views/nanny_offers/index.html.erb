@@ -4,16 +4,26 @@
     <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
         <%= link_to(nanny_offer_path(u.id)) do %>
-        <div class="nannycard-image" style="background-image: url('<%= asset_path "pauline.jpg" %>')";></div>
-        <div class="nannycard-content">
-          <h4><%= u.user.first_name %> <%= u.user.last_name %> </h4>
-          <p>TEST</p>
-        </div>
+          <% if u.user.profile_picture.present?
+              image_url = u.user.profile_picture
+            else
+              if u.user.gender === "male"
+                image_url = asset_path 'no_profile_picture_male.jpg'
+              else
+                image_url = asset_path 'no_profile_picture_female.jpg'
+              end
+            end %>
+          <div class="nannycard-image" style="background-image: url('<%= cl_image_path image_url, height: 300, width: 400, crop: :fill %>')";>
+          </div>
+          <div class="nannycard-content">
+            <h4><%= u.user.first_name %> <%= u.user.last_name %> </h4>
+            <p>TEST</p>
+          </div>
         <% end %>
       </div>
     </div>
     <% end %>
-    <div class="col-xs-12 col-sm-4 col-lg-2">
+    <!-- <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
         <div class="nannycard-image" style="background-image: url('<%= asset_path "pauline.jpg" %>')";></div>
         <div class="nannycard-content">
@@ -120,7 +130,7 @@
           <p>Protecteur et bienveillant</p>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 <div class="row"></div>
 
