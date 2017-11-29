@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :bookings
 
   mount_uploader :profile_picture, PhotoUploader
-  mount_uploader :appartment_picture, PhotoUploader
+  mount_uploader :appartment_photo, PhotoUploader
 end
