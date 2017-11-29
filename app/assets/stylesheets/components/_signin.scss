@@ -1,0 +1,29 @@
+.title-login {
+  text-align: center;
+}
+.form-inputs {
+  display: inline-block;
+  text-align: center;
+}
+.signin-banner {
+  color: white;
+  text-align: center;
+  height: 70vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  background: no-repeat center center fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-links {
+  a {
+    color: #F1BDC0;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #F1BDC0;
+    text-decoration: underline;
+  }
+}
