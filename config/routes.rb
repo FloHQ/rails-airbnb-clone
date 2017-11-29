@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'reviews/new'
-
-  get 'reviews/create'
 
   # route for Home
   root to: 'pages#home'
@@ -14,5 +11,6 @@ Rails.application.routes.draw do
 
   resources :nanny_offers do
     resources :bookings, only: [:new, :create, :index, :show]
+    resources :reviews, only: [:new, :create]
   end
 end
