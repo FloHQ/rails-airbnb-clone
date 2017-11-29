@@ -1,11 +1,29 @@
 <!-- <div class="show-container"> -->
+  <% if @nanny_offer.user.profile_picture.present?
+              image_url_profile_picture = @nanny_offer.user.profile_picture
+            else
+              if @nanny_offer.user.gender === "male"
+                image_url_profile_picture = asset_path 'no_profile_picture_male.jpg'
+              else
+                image_url_profile_picture = asset_path 'no_profile_picture_female.jpg'
+              end
+  end %>
+
+  <% if @nanny_offer.user.profile_picture.present?
+        image_url_appartment_photo = @nanny_offer.user.appartment_photo
+      else
+        image_url_appartment_photo = asset_path 'no_appartment_photo.jpg'
+  end %>
+
     <div class="banner" style="
-    background-image: linear-gradient(-225deg, rgba(188, 78, 156, 0.3) 90%, rgba(248, 7, 89, 0.3) 90%), url('<%= asset_path "nanny-offer-show.jpg" %>');
+    background-image: linear-gradient(-225deg, rgba(188, 78, 156, 0.3) 90%, rgba(248, 7, 89, 0.3) 90%), url('<%= cl_image_path image_url_appartment_photo, height: 200, width: 400, crop: :fill %>');
     /*height: 200px;
 */    ">
     </div>
 
     <div class="container">
+      <br>
+      <br>
       <div class="row">
           <div class="col-xs-12 col-md-6">
             <h3 class="title-nanny-offer-show">
@@ -40,9 +58,16 @@
             </p>
 
             <h3 class="title-nanny-offer-show">Commentaires</h3>
-            <p class="paragraph-nanny-offer-show" id="commentaires">
+
+              <% Review.where(nanny_offer_id: @nanny_offer.id).each do |r| %>
+                <p> -- </p>
+                <p class="paragraph-nanny-offer-show" id="nounou"><%= r.description %></p>
+<!--                 <p class="paragraph-nanny-offer-show" id="nounou"><%#= r.rating %></p>
+ -->              <% end %>
+
+<!--             <p class="paragraph-nanny-offer-show" id="commentaires">
               Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
-            </p>
+            </p> -->
 
 
             <h3 class="title-nanny-offer-show">La Nounou</h3>
@@ -58,26 +83,48 @@
           </div>
 
           <div class= "col-xs-12 col-md-2">
-            <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="avatar-large"/>
+            <div class="avatar-large"> <%= cl_image_tag image_url_profile_picture, height: 100, width: 100, crop: :fill, radius: :max, background: "#F4F4F4" %> </div>
           </div>
-          <% if @nanny_offer.user.id === current_user.id %>
-          <%# shows if it's an offer from current use %>
-          <div>
-            <div class="col-xs-12 col-md-4 calendar">
-              <p>Date de début : <%=  @nanny_offer.start_date %></p>
-              <p>Date de fin   : <%= @nanny_offer.end_date %></p>
-              <p><%= link_to "Editer l'offre", edit_nanny_offer_path(@nanny_offer), class: "btn btn-yours" %></p>
-            </div>
-          </div>
-          <% else %>
-          <%# shows if it's someone elses offer  %>
-            <div>
+          <% if user_signed_in? %>
+            <% if @nanny_offer.user.id === current_user.id %>
+            <%# shows if it's an offer from current use %>
+              <div>
+                <div class="col-xs-12 col-md-4 calendar">
+                  <p> <b>Date de début :</b> <%=  @nanny_offer.start_date %></p>
+                  <p> <b>Date de fin   :</b> <%= @nanny_offer.end_date %></p>
+                  <p> <b>Prix   :</b> <%= @nanny_offer.price %> €</p>
+                  <p><%= link_to "Editer l'offre", edit_nanny_offer_path(@nanny_offer), class: "btn btn-yours" %></p>
+                </div>
+              </div>
+            <% else %>
+              <div>
+                <div class="col-xs-12 col-md-4 calendar">
+                  <p> <b>Date de début :</b> <%=  @nanny_offer.start_date %></p>
+                  <p> <b>Date de fin   :</b> <%= @nanny_offer.end_date %></p>
+                  <p> <b>Prix   :</b> <%= @nanny_offer.price %> €</p>
+                  <p><%= link_to "Reserver Maintenant", new_nanny_offer_booking_path(@nanny_offer), class: "btn btn-yours" %></p>
+                </div>
+              </div>
+            <!-- div>
               <div class="col-xs-12 col-md-4 calendar">
                 date d'arrivée
                 <input class="form-control input-sm" type="text" placeholder="saisissez la date d'arrivée de votre enfant">
                 date de départ
                 <input class="form-control input-sm" type="text" placeholder="saisissez la date de départ de votre enfant">
+                </div>
                 <button type="button" class="btn btn-success">Enregistrez</button>
+            </div> -->
+            <% end %>
+          <% else %>
+          <!-- Show if not logged-in -->
+            <div>
+              <div class="col-xs-12 col-md-4 calendar">
+                <p> <b>Date de début :</b> <%=  @nanny_offer.start_date %></p>
+                <p> <b>Date de fin   :</b> <%= @nanny_offer.end_date %></p>
+                <br>
+                <p> <b>Prix   :</b> <%= @nanny_offer.price %> €</p>
+                <p style="font-weight: bolder; color: #CF5056"> Connectez-vous à votre compte pour pouvoir réserver</p>
+                <%= link_to('Connexion', new_user_session_path, class: "btn btn-yours")  %>
               </div>
             </div>
           <% end %>
