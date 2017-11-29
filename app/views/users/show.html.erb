@@ -1,7 +1,17 @@
-<h1> TEST </h1>
-
-<p>First name : <%= @user.first_name %></p>
-<p>Last Name : <%= @user.last_name %></p>
-<p>Gender : <%= @user.gender %></p>
-<p>ETC (à compléter)</p>
-<p> A ajouter : bouton éditer profil (path vers edit_user_registration géré par devise)</p>
+<div class="container">
+  <h1> Mon profil </h1>
+  <%= link_to 'Editer le profil', edit_user_registration_path, class: "btn btn-yours" %>
+  <br/>
+  <br/>
+  <p>Prénom       : <%= @user.first_name %></p>
+  <p>Nom          : <%= @user.last_name %></p>
+  <p>Genre        : <%= @user.gender %></p>
+  <p>Téléphone    : <%= @user.phone_number %></p>
+  <p>Age          : <%= @user.age %></p>
+  <!-- <p>Profile pic  : <%= @user.profile_picture %></p> -->
+  <p>Appartement  :</p>
+  <p> Equipement  : <%= @user.appartment_equipment %></p>
+  <p> Règles      : <%= @user.appartment_rules %></p>
+  <p> Addresse    : <%= @user.appartment_address %></p>
+  <!-- <p> Photo   : <%= @user.appartment_photo %></p> -->
+</div>
