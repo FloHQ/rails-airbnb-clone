@@ -1,3 +1,6 @@
+
+
+
 <h1>Bookings#index</h1>
 <p>Find me in app/views/bookings/index.html.erb</p>
 
@@ -13,13 +16,25 @@
 <% end %>
 <br>
 
-<br>
-<% unless current_user.bookings.empty? then %>
-  <p>Vos réservations effectuées auprès de nourrices :</p>
-  <p><%= "Vous avez passé #{current_user.bookings.count} demandes auprès de nourrices" %></p>
-    <%= current_user.bookings.each do |my_request| %>
-      <p><%= my_request %></p>
-      <br>
-    <% end %>
-<% end %>
 
+
+<div class="content">
+  <div class="cards-container">
+    <div class="mybookingscards">
+      <div class="col-md-8">
+        <div class="booking-card">
+        <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="avatar-large"/>
+          <h4>Pauline</h4>
+          <p>Patiente même quand vos enfants n'y arrivent pas</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="booking-status">
+        <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="avatar-large"/>
+          <h4>Pauline</h4>
+          <p>Patiente même quand vos enfants n'y arrivent pas</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
