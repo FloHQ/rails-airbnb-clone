@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
+
+  get 'reviews/create'
+
   # route for Home
   root to: 'pages#home'
 
