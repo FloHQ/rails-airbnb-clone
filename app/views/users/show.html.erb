@@ -9,6 +9,7 @@
   <p>Téléphone    : <%= @user.phone_number %></p>
   <p>Age          : <%= @user.age %></p>
   <p>Profile pic  : <%= cl_image_tag @current_user.profile_picture, height: 150, width: 200, crop: :fill %></p>
+  <p> Short Description  : <%= @user.short_description %></p>
   <p>Appartement  :</p>
   <p> Equipement  : <%= @user.appartment_equipment %></p>
   <p> Règles      : <%= @user.appartment_rules %></p>

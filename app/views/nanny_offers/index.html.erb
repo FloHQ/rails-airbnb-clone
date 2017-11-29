@@ -16,8 +16,8 @@
           <div class="nannycard-image" style="background-image: url('<%= cl_image_path image_url, height: 300, width: 400, crop: :fill %>')";>
           </div>
           <div class="nannycard-content">
-            <h4><%= u.user.first_name %> <%= u.user.last_name %> </h4>
-            <p>TEST</p>
+            <h5><%= u.user.first_name %> <%= u.user.last_name %> </h4>
+            <p style="font-weight: thin;"><%= u.user.short_description %></p>
           </div>
         <% end %>
       </div>
