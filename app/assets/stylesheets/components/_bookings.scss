@@ -1,30 +1,85 @@
-.nannycard {
-  height: 250px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  border-radius: 1px;
-  margin: 15px 10px;
-  background-color: #C25657;
-}
-
-.nannycard-image {
-  background-size: cover;
-  background-position: center;
-  height: 150px;
+.tabs {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-around;
+  align-items: center;
+}
+.tab {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  opacity: 0.3;
+  border-bottom: 5px solid transparent;
+  text-decoration: none;
+  color: black;
+}
+.tab:hover {
+  opacity: 1;
+}
+.tab.active {
+  opacity: 1;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  border-bottom: 5px solid #00A699;
 }
 
-.nannycard-content {
-  height: 100px;
-  justify-content: space-around;
+.inbox {
+  border: 1px solid #dce0e0;
+  padding: 0 20px;
+  margin: 0;
+  background-color: white;
+}
+.booking-element {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+}
+.booking-element:last-child {
+  border-bottom: none;
+}
+.booking-element-body {
+  flex-grow: 1;
+}
+.booking-element-name {
+  padding-left: 10px;
+  min-width: 100px;
+}
+.booking-element-name h3 {
   font-size: 13px;
-  font-weight: bolder;
-  text-align: center;
-  color: white;
-  text-shadow: 0 0 0.5px rgba(245, 206, 209, 1);
+  margin-bottom: 0px;
 }
-
-.nannycard:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+.booking-element-name p {
+  font-size: 13px;
+  font-weight: lighter;
+  opacity: 0.6;
+  margin-top: 5px;
+}
+.booking-element-body {
+  padding-left: 10px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+}
+.booking-element-body {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+}
+.booking-element-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+.booking-element-body p {
+  margin: 6px 0;
+}
+.booking-element-status {
+  font-size: 14px;
+  font-weight: bold;
+}
+.status.accepted {
+  color: green;
+}
+.status.declined {
+  color: red;
+}
+.status.pending {
+  color: orange;
 }
