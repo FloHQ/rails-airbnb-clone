@@ -1,7 +1,21 @@
 class NannyOffersController < ApplicationController
 
   def index
-    @nanny_offers = NannyOffer.all
+    # FIX - Just NannyOffers should appear
+    @users = User.where.not(latitude: nil, longitude: nil)
+    users_id_array = []
+    @users.each do |user|
+      users_id_array << user.id
+    end
+    binding.pry
+    @nanny_offers = NannyOffer.where(user_id: users_id_array)
+    @markers = @nanny_offers.map do |nanny_offer|
+      {
+        lat: nanny_offer.user.latitude,
+        lng: nanny_offer.user.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
   end
 
   def new

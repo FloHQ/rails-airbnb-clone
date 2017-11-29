@@ -10,4 +10,7 @@ class User < ApplicationRecord
 
   mount_uploader :profile_picture, PhotoUploader
   mount_uploader :appartment_photo, PhotoUploader
+
+  geocoded_by :appartment_address
+  after_validation :geocode, if: :appartment_address_changed?
 end
