@@ -20,6 +20,8 @@ gem 'webpacker'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 
+gem 'geocoder'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
