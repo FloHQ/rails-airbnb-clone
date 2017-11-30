@@ -1,2 +1,23 @@
-<h1>Reviews#new</h1>
+<!-- g<h1>Reviews#new</h1>
 <p>Find me in app/views/reviews/new.html.erb</p>
+ -->
+
+<!--  # app/views/reviews/new.html.erb -->
+<div class="container">
+  <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <%= simple_form_for [@nanny_offer, @review] do |f| %>
+        <%= f.input :description, :placeholder => "Entrez ici votre commentaire"%>
+        <%= f.input :rating %>
+        <%= f.submit "add a review", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+      <div class= "col-xs-12 col-md-2">
+       <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="avatar-large"/>
+      </div>
+  </div>
+</div>
+
+
+

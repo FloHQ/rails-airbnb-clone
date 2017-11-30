@@ -1,7 +1,30 @@
 class NannyOffersController < ApplicationController
 
   def index
-    @nanny_offers = NannyOffer.all
+    users_id_array = []
+    @users_complied = User.where.not(latitude: nil, longitude: nil)
+    if current_user
+      @users_legitimacy = User.near(current_user.appartment_address, 2)
+      @users_complied.each do |user|
+        if @users_legitimacy.include?(user)
+          users_id_array << user.id
+        end
+      end
+    else
+      @users_complied.each do |user|
+        users_id_array << user.id
+      end
+    end
+
+    @nanny_offers = NannyOffer.where(user_id: users_id_array)
+
+    @markers = @nanny_offers.map do |nanny_offer|
+      {
+        lat: nanny_offer.user.latitude,
+        lng: nanny_offer.user.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
   end
 
   def new
@@ -56,6 +79,6 @@ class NannyOffersController < ApplicationController
   private
   # To Finish when View is done
   def nanny_offer_params
-    params.require(:nanny_offer).permit(:start_date, :end_date)
+    params.require(:nanny_offer).permit(:start_date, :end_date, :price)
   end
 end

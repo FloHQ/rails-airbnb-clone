@@ -1,17 +1,40 @@
-<div class="container">
-  <h1> Mon profil </h1>
-  <%= link_to 'Editer le profil', edit_user_registration_path, class: "btn btn-yours" %>
-  <br/>
-  <br/>
-  <p>Prénom       : <%= @user.first_name %></p>
-  <p>Nom          : <%= @user.last_name %></p>
-  <p>Genre        : <%= @user.gender %></p>
-  <p>Téléphone    : <%= @user.phone_number %></p>
-  <p>Age          : <%= @user.age %></p>
-  <p>Profile pic  : <%= cl_image_tag @current_user.profile_picture, height: 150, width: 200, crop: :fill %></p>
-  <p>Appartement  :</p>
-  <p> Equipement  : <%= @user.appartment_equipment %></p>
-  <p> Règles      : <%= @user.appartment_rules %></p>
-  <p> Addresse    : <%= @user.appartment_address %></p>
-  <p> Photo   : <%= cl_image_tag @current_user.appartment_photo, height: 300, width: 400, crop: :fill %></p>
+<div class="container profil_user">
+   <div class="row">
+    <div class="col-xs-6 col-sm-8 col-lg-6">
+      <div class="profil">
+        <h1>Mon profil </h1>
+        <p>Prénom       : <%= @user.first_name %></p>
+        <p>Nom          : <%= @user.last_name %></p>
+        <p>Genre        : <%= @user.gender %></p>
+        <p>Téléphone    : <%= @user.phone_number %></p>
+        <p>Age          : <%= @user.age %></p>
+      </div>
+    </div>
+
+    <div class="col-xs-6 col-sm-8 col-lg-6">
+      <p class="profil">Profile pic  : <%= cl_image_tag @current_user.profile_picture, height: 150, width: 200, crop: :fill %></p>
+    </div>
+  </div>
 </div>
+
+<div class="container flat_details">
+  <div class="row">
+    <div class="col-xs-6 col-sm-8 col-lg-12">
+      <div class="profil">
+      <p>Appartement  :</p>
+      <p> Equipement  : <%= @user.appartment_equipment %></p>
+      <p> Règles      : <%= @user.appartment_rules %></p>
+      <p> Addresse    : <%= @user.appartment_address %></p>
+      <p> Photo   : <%= cl_image_tag @current_user.appartment_photo, height: 300, width: 400, crop: :fill %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container register">
+  <div class="col-xs-6 col-sm-8 col-lg-6">
+  <%= link_to 'Editer le profil', edit_user_registration_path, class: "btn btn-yours" %>
+  </div>
+</div>
+
+
