@@ -9,7 +9,7 @@
               end
   end %>
 
-  <% if @nanny_offer.user.profile_picture.present?
+  <% if @nanny_offer.user.appartment_photo.present?
         image_url_appartment_photo = @nanny_offer.user.appartment_photo
       else
         image_url_appartment_photo = asset_path 'no_appartment_photo.jpg'

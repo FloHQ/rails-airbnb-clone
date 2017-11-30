@@ -1,5 +1,5 @@
 <div class="content">
-  <div class="cards-container">
+  <div class="container">
     <% @nanny_offers.each do |u| %>
     <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
@@ -23,9 +23,19 @@
       </div>
     </div>
     <% end %>
-    <!-- <div class="col-xs-12 col-sm-4 col-lg-2">
+    <div
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>">
+    </div>
+  </div>
+
+</div>
+
+ <!--    <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
-        <div class="nannycard-image" style="background-image: url('<%= asset_path "pauline.jpg" %>')";></div>
+        <div class="nannycard-image" style="background-image: url('<%#= asset_path "pauline.jpg" %>')";></div>
         <div class="nannycard-content">
           <h4>Pauline</h4>
           <p>Patiente même quand vos enfants n'y arrivent pas</p>
@@ -34,16 +44,16 @@
       </div>
     <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
-        <div class="nannycard-image" style="background-image: url('<%= asset_path "aurelien.jpg" %>')";></div>
+        <div class="nannycard-image" style="background-image: url('<%#= asset_path "aurelien.jpg" %>')";></div>
         <div class="nannycard-content">
-          <h4>Aurélien</h4>
+          <h4><a href="/nanny_offers/19">Aurélien</a> </h4>
           <p>Héros des enfants</p>
         </div>
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
-        <div class="nannycard-image" style="background-image: url('<%= asset_path "edouard.jpg" %>')";></div>
+        <div class="nannycard-image" style="background-image: url('<%#= asset_path "edouard.jpg" %>')";></div>
         <div class="nannycard-content">
           <h4>Edouard</h4>
           <p>Prépare vos enfants à un entretien pro</p>
@@ -52,7 +62,7 @@
     </div>
     <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
-        <div class="nannycard-image" style="background-image: url('<%= asset_path "gabriel.jpg" %>')";></div>
+        <div class="nannycard-image" style="background-image: url('<%#= asset_path "gabriel.jpg" %>')";></div>
         <div class="nannycard-content">
           <h4>Gabriel</h4>
           <p>Un vrai enfant pour garder vos enfants</p>
@@ -61,7 +71,7 @@
     </div>
     <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
-        <div class="nannycard-image" style="background-image: url('<%= asset_path "julien.jpg" %>')";></div>
+        <div class="nannycard-image" style="background-image: url('<%#= asset_path "julien.jpg" %>')";></div>
         <div class="nannycard-content">
           <h4>Julien</h4>
           <p>Faites vos flashcards !</p>
@@ -70,7 +80,7 @@
     </div>
     <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
-        <div class="nannycard-image" style="background-image: url('<%= asset_path "sebastien.jpg" %>')";></div>
+        <div class="nannycard-image" style="background-image: url('<%#= asset_path "sebastien.jpg" %>')";></div>
         <div class="nannycard-content">
           <h4>Sébastien</h4>
           <p>Du CP à Polytechnique en 9 semaines</p>
@@ -79,7 +89,7 @@
     </div>
     <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
-        <div class="nannycard-image" style="background-image: url('<%= asset_path "blondy.jpg" %>')";></div>
+        <div class="nannycard-image" style="background-image: url('<%#= asset_path "blondy.jpg" %>')";></div>
         <div class="nannycard-content">
           <h4>Blondy</h4>
           <p>Jeune et dynamique</p>
@@ -88,7 +98,7 @@
     </div>
     <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
-        <div class="nannycard-image" style="background-image: url('<%= asset_path "clement_ta.jpg" %>')";></div>
+        <div class="nannycard-image" style="background-image: url('<%#= asset_path "clement_ta.jpg" %>')";></div>
         <div class="nannycard-content">
           <h4>Clément</h4>
           <p>Un papa pédagogue</p>
@@ -97,7 +107,7 @@
     </div>
     <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
-        <div class="nannycard-image" style="background-image: url('<%= asset_path "nicolas.jpg" %>')";></div>
+        <div class="nannycard-image" style="background-image: url('<%#= asset_path "nicolas.jpg" %>')";></div>
         <div class="nannycard-content">
           <h4>Nicolas</h4>
           <p>Maître nageur</p>
@@ -106,7 +116,7 @@
     </div>
     <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
-        <div class="nannycard-image" style="background-image: url('<%= asset_path "mathieu.jpg" %>')";></div>
+        <div class="nannycard-image" style="background-image: url('<%#= asset_path "mathieu.jpg" %>')";></div>
         <div class="nannycard-content">
           <h4>Mathieu</h4>
           <p>Sérieux, homme de confiance</p>
@@ -115,7 +125,7 @@
     </div>
     <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
-        <div class="nannycard-image" style="background-image: url('<%= asset_path "clement.jpg" %>')";></div>
+        <div class="nannycard-image" style="background-image: url('<%#= asset_path "clement.jpg" %>')";></div>
         <div class="nannycard-content">
           <h4>Clément</h4>
           <p>Vos enfants apprendront à économiser leur argent</p>
@@ -124,14 +134,16 @@
     </div>
     <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
-        <div class="nannycard-image" style="background-image: url('<%= asset_path "jobrann.jpg" %>')";></div>
+        <div class="nannycard-image" style="background-image: url('<%#= asset_path "jobrann.jpg" %>')";></div>
         <div class="nannycard-content">
           <h4>Jobrann</h4>
           <p>Protecteur et bienveillant</p>
         </div>
-      </div>
-    </div> -->
+      </div> -->
+    </div>
   </div>
-<div class="row"></div>
+<div class="row">
+
+</div>
 
 
