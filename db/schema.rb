@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20171129154702) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price"
-    t.integer "short_description"
+    t.text "short_description"
     t.index ["user_id"], name: "index_nanny_offers_on_user_id"
   end
 
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20171129154702) do
     t.string "appartment_photo"
     t.float "latitude"
     t.float "longitude"
-    t.string "short_description"
+    t.text "short_description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
