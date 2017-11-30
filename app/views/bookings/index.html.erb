@@ -8,9 +8,9 @@
         <% current_user.nanny_offers.each do |o|
           o.bookings.each do |b| %>
           <% case b.status
-          when "1" then status = "<span class='status accepted'>Accepté</span>".html_safe
+          when "1" then status = "<span class='status accepted'>Acceptée</span>".html_safe
           when "2" then status = "<span class='status pending'>En attente</span>".html_safe
-          when "3" then status = "<span class='status declined'>Refusé</span>".html_safe
+          when "3" then status = "<span class='status declined'>Refusée</span>".html_safe
           end %>
           <li class="booking-element">
             <%= cl_image_tag b.user.profile_picture, alt: "", class: "avatar-large" %>
@@ -22,7 +22,8 @@
               <p><strong>Dates de réservation : <%= b.nanny_offer.start_date.strftime("%e/%m/%Y") %> - <%= b.nanny_offer.end_date.strftime("%e/%m/%Y") %></strong></p>
               <p>Description des enfants à garder:<%#= b.short_description %> </p>
             </div>
-            <%#= link_to 'Accepter',  %>
+            <%= link_to "Accepter", booking_path(b, status: "1"), method: :patch, class: "btn btn-yours" %>
+            <%= link_to "Refuser", booking_path(b, status: "3"), method: :patch, class: "btn btn-yours" %>
             <div class="booking-element-status">
               <p class="status pending"><%= status %></p>
             </div>
@@ -38,9 +39,9 @@
       <ul class='inbox'>
         <% current_user.bookings.each do |b| %>
           <% case b.status
-          when "1" then status = "<span class='status accepted'>Accepté</span>".html_safe
+          when "1" then status = "<span class='status accepted'>Acceptée</span>".html_safe
           when "2" then status = "<span class='status pending'>En attente</span>".html_safe
-          when "3" then status = "<span class='status declined'>Refusé</span>".html_safe
+          when "3" then status = "<span class='status declined'>Refusée</span>".html_safe
           end %>
           <li class="booking-element">
             <%= cl_image_tag b.nanny_offer.user.profile_picture, alt: "", class: "avatar-large" %>
