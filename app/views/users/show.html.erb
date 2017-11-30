@@ -5,7 +5,7 @@
         <h1>Mon profil </h1>
         <p>Prénom       : <%= @user.first_name %></p>
         <p>Nom          : <%= @user.last_name %></p>
-        <p>Genre        : <%= @user.gender %></p>
+        <p>Sexe        : <%= @user.gender %></p>
         <p>Téléphone    : <%= @user.phone_number %></p>
         <p>Age          : <%= @user.age %></p>
       </div>
@@ -24,7 +24,7 @@
       <p>Appartement  :</p>
       <p> Equipement  : <%= @user.appartment_equipment %></p>
       <p> Règles      : <%= @user.appartment_rules %></p>
-      <p> Addresse    : <%= @user.appartment_address %></p>
+      <p> Adresse    : <%= @user.appartment_address %></p>
       <p> Photo   : <%= cl_image_tag @current_user.appartment_photo, height: 300, width: 400, crop: :fill %></p>
       </div>
     </div>
