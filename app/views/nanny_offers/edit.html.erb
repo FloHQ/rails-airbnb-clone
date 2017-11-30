@@ -1,12 +1,24 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <h2> Editer l'offre</h2>
-      <%= simple_form_for [@nanny_offer] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.submit class: "btn btn-yours", value: "Editer l'offre" %>
-      <% end %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(188, 78, 156, 0.3) 90%, rgba(248, 7, 89, 0.3) 90%), url('<%= asset_path "diapers-baby.png"  %>');">
+  <div class="banner-content">
+    <div class="container">
+      <div class="row">
+          <div class="col-xs-6 col-sm-8 col-lg-12">
+            <div class="title-login">
+            <h3>Une modification concernant vos disponibilités ?</h3>
+            </div>
+            <div class="form-login">
+            <%= simple_form_for [@nanny_offer] do |f| %>
+              <div class="form-inputs">
+                <%= f.input :start_date, :label=> "Date de début"  %>
+                <%= f.input :end_date, :label=> "Date de fin"  %>
+              </div>
+              <div class="form-actions">
+                <%= f.submit class: "btn btn-yours", value: "Editer l'offre" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+      </div>
     </div>
   </div>
 </div>
