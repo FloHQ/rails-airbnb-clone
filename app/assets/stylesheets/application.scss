@@ -16,12 +16,8 @@
 
 // Padding nécessaire pour le navbar
 body { padding-top: 3em;
-  a {
-  color: inherit; /* blue colors for links too */
-  text-decoration: inherit; /* no underline */
-  }
-  a:hover {
-    text-decoration: inherit;
+    a, a:hover, a:active, a:visited, a:focus {
+      text-decoration:none;
   }
 }
 
