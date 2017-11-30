@@ -3,7 +3,7 @@
     <h2>Confirmer votre réservation</h2>
     <ul class="inbox">
       <li class="booking-element">
-        <img src="<%= cl_image_tag @nanny_offer.user.profile_picture %>" alt="" class="avatar-large">
+        <img src="<%= cl_image_path @nanny_offer.user.profile_picture %>" alt="" class="avatar-large">
         <div class="booking-element-name">
           <h3><%= @nanny_offer.user.first_name %> <%= @nanny_offer.user.last_name %></h3>
         </div>
