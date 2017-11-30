@@ -1,6 +1,7 @@
 <div class="container">
   <div class="status-booking">
     <h1>Vos réservations</h1>
+
   <% unless current_user.nanny_offers.empty? then %>
     <p>Vos demandes client :</p>
       <p><%= "Vous avez #{current_user.nanny_offers.last.bookings.count} demande client" %></p>
@@ -9,52 +10,87 @@
         <br>
       <% end %>
   <% end %>
+
   <br>
+
   </div>
-  <ul class="inbox">
-    <li class="booking-element">
-      <img src=<%= asset_path "pauline.jpg"%> alt="" class="avatar-large">
-      <div class="booking-element-name">
-        <h3>Pauline</h3>
-        <p></p>
-      </div>
-      <div class="booking-element-body">
-        <p><strong>Date de réservation: 10/11/2017 - 12/11/2017</strong></p>
-        <p>Description des enfants à garder:</p>
-      </div>
-      <div class="booking-element-status">
-        <p class="status pending">En attente</p>
-      </div>
-    </li>
-    <li class="booking-element">
-      <img src=<%= asset_path "aurelien.jpg"%> alt="" class="avatar-large">
-      <div class="booking-element-name">
-        <h3>Aurélien</h3>
-        <p></p>
-      </div>
-      <div class="booking-element-body">
-        <p><strong>Date de réservation: 10/11/2017 - 12/11/2017</strong></p>
-        <p>Description des enfants à garder:</p>
-      </div>
-      <div class="booking-element-status">
-        <p class="status accepted">Refusée</p>
-      </div>
-    </li>
-    <li class="booking-element">
-      <img src=<%= asset_path "clement.jpg"%> alt="" class="avatar-large">
-      <div class="booking-element-name">
-        <h3>Clément</h3>
-        <p></p>
-      </div>
-      <div class="booking-element-body">
-        <p><strong>Date de réservation: 10/11/2017 - 12/11/2017</strong></p>
-        <p>Description des enfants à garder:</p>
-      </div>
-      <div class="booking-element-status">
-        <p class="status declined">Acceptée</p>
-      </div>
-    </li>
-  </ul>
+
+  <div>
+    <h3> Je suis nounous</h3>
+    <ul class='inbox'>
+    <% current_user.nanny_offers.each do |o|
+      o.bookings.each do |b| %>
+      <% case b.status
+      when "1" then status = "<span class='status accepted'>Accepté</span>".html_safe
+      when "2" then status = "<span class='status pending'>En attente</span>".html_safe
+      when "3" then status = "<span class='status declined'>Refusé</span>".html_safe
+      end %>
+      <li class="booking-element">
+        <img src=<%= asset_path "pauline.jpg"%> alt="" class="avatar-large">
+        <div class="booking-element-name">
+          <h3>Pauline</h3>
+          <p></p>
+        </div>
+        <div class="booking-element-body">
+          <p><strong>Dates de réservation: <%= b.nanny_offer.start_date.strftime("%e/%m/%Y") %> - <%= b.nanny_offer.end_date.strftime("%e/%m/%Y") %></strong></p>
+          <p>Description des enfants à garder:<%= b.short_description %> </p>
+        </div>
+        <div class="booking-element-status">
+          <p class="status pending"><%= status %></p>
+        </div>
+      </li>
+    <% end
+    end %>
+
+  </div>
+
+  <div>
+    <h3> Je suis parent </h3>
+    <ul class="inbox">
+      <li class="booking-element">
+        <img src=<%= asset_path "pauline.jpg"%> alt="" class="avatar-large">
+        <div class="booking-element-name">
+          <h3>Pauline</h3>
+          <p></p>
+        </div>
+        <div class="booking-element-body">
+          <p><strong>Date de réservation: 10/11/2017 - 12/11/2017</strong></p>
+          <p>Description des enfants à garder:</p>
+        </div>
+        <div class="booking-element-status">
+          <p class="status pending">En attente</p>
+        </div>
+      </li>
+      <li class="booking-element">
+        <img src=<%= asset_path "aurelien.jpg"%> alt="" class="avatar-large">
+        <div class="booking-element-name">
+          <h3>Aurélien</h3>
+          <p></p>
+        </div>
+        <div class="booking-element-body">
+          <p><strong>Date de réservation: 10/11/2017 - 12/11/2017</strong></p>
+          <p>Description des enfants à garder:</p>
+        </div>
+        <div class="booking-element-status">
+          <p class="status accepted">Refusée</p>
+        </div>
+      </li>
+      <li class="booking-element">
+        <img src=<%= asset_path "clement.jpg"%> alt="" class="avatar-large">
+        <div class="booking-element-name">
+          <h3>Clément</h3>
+          <p></p>
+        </div>
+        <div class="booking-element-body">
+          <p><strong>Date de réservation: 10/11/2017 - 12/11/2017</strong></p>
+          <p>Description des enfants à garder:</p>
+        </div>
+        <div class="booking-element-status">
+          <p class="status declined">Acceptée</p>
+        </div>
+      </li>
+    </ul>
+  </div>
   <br>
   <br>
 </div>
