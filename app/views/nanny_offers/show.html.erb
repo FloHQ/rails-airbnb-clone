@@ -93,14 +93,31 @@
             </div>
           </div>
         <% else %>
-          <div>
+        <%# Vérifie si l'utilisateur a déjà booké cette offre %>
+          <% has_booked = false
+          booked = 0
+          bookings = Booking.where(nanny_offer_id: @nanny_offer.id).map {|o| o}
+          bookings.each do |b|
+            b.user.id == current_user.id ? has_booked = true : has_booked = false
+            booked = b
+          end %>
+
+          <% if has_booked %>
             <div class="col-xs-12 col-md-4 calendar">
               <p> <b>Date de début :</b> <%=  @nanny_offer.start_date %></p>
               <p> <b>Date de fin   :</b> <%= @nanny_offer.end_date %></p>
               <p> <b>Prix   :</b> <%= @nanny_offer.price %> €</p>
-              <p><%= link_to "Reserver Maintenant", new_nanny_offer_booking_path(@nanny_offer), class: "btn btn-yours" %></p>
+              <p><%= link_to "Retour à la réservation", booking_path(booked), class: "btn btn-yours" %></p>
             </div>
-          </div>
+          <% else %>
+            <div>
+              <div class="col-xs-12 col-md-4 calendar">
+                <p> <b>Date de début :</b> <%=  @nanny_offer.start_date %></p>
+                <p> <b>Date de fin   :</b> <%= @nanny_offer.end_date %></p>
+                <p> <b>Prix   :</b> <%= @nanny_offer.price %> €</p>
+                <p><%= link_to "Reserver Maintenant", new_nanny_offer_booking_path(@nanny_offer), class: "btn btn-yours" %></p>
+              </div>
+            </div>
           <!-- div>
             <div class="col-xs-12 col-md-4 calendar">
               date d'arrivée
@@ -110,6 +127,7 @@
               </div>
               <button type="button" class="btn btn-success">Enregistrez</button>
             </div> -->
+          <% end %>
         <% end %>
       <% else %>
         <!-- Show if not logged-in -->
