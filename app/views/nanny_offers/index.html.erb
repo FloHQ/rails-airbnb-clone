@@ -1,7 +1,7 @@
 <div class="content padding-top-navbar">
   <div class="container">
     <% @nanny_offers.each do |u| %>
-    <div class="col-xs-12 col-sm-4 col-lg-2">
+    <div class="col-xs-12 col-sm-4 col-lg-3">
       <div class="nannycard">
         <%= link_to(nanny_offer_path(u.id), target: :_blank) do %>
           <% if u.user.profile_picture.present?
