@@ -8,6 +8,7 @@
   font-size: 28px;
   line-height: 32px;
   letter-spacing: -0.6px;
+  margin-top: 5px;
     }
   p {
   color:#484848;
@@ -35,7 +36,7 @@
 
 .card-flat {
   background: white;
-  padding-top: 5px;
+  padding-top: 20px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   padding: 30px;
   height:300px;
@@ -58,7 +59,7 @@
   right:10px;
   img {
   border-radius: 50%;
-  border: 2px solid blue;
+  border: 1px solid black ;
   width: 100px;
   height: 100px;
   }
