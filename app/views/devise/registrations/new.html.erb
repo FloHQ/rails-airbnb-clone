@@ -1,5 +1,6 @@
 <div class="profile-page" style="background-image: url('<%= asset_path "supernanny-fly.png"  %>');">
   <div class="container">
+    <br>
     <h3>Créer un compte</h3>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -25,10 +26,10 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
+        <%= f.button :submit, "Confirmer l'inscription", class:"btn btn-yours" %>
       </div>
     <% end %>
-
-    <%= render "devise/shared/links" %>
+    <p><%= render "devise/shared/links" %></p>
   </div>
+  <br>
 </div>
