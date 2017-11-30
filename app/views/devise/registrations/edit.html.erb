@@ -1,25 +1,26 @@
+<div class="profile-page" style="background-image: url('<%= asset_path "supernanny-double.png"  %>');">
 <div class="container">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <h3>Editer <%= resource_name.to_s.humanize %></h3>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <p> Entrez votre mot de passe pour que la modification soit effective.
-      <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+      <p>
+      <%= f.input :current_password, :label=> "Mot de passe actuel", hint: "Nécessaire pour confirmer vos modifications", required: true %>
       <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      <%= f.input :phone_number %>
+      <%= f.input :first_name, :label=> "Prénom" %>
+      <%= f.input :last_name, :label=> "Nom" %>
+      <%= f.input :phone_number, :label=> "Numéro de téléphone" %>
       <%= f.input :age %>
-      <%= f.input :gender %>
-      <%= f.input :short_description %>
-      <%= f.input :profile_picture %>
+      <%= f.input :gender, :label=> "Sexe" %>
+      <%= f.input :short_description, :label=> "Décrivez-vous!" %>
+      <%= f.input :profile_picture, :label=> "Photo de profil" %>
       <%= f.input :profile_picture_cache, as: :hidden %>
-      <%= f.input :appartment_equipment %>
-      <%= f.input :appartment_rules %>
-      <%= f.input :appartment_address %>
-      <%= f.input :appartment_photo %>
+      <%= f.input :appartment_equipment, :label=> "Détails de l'appartement" %>
+      <%= f.input :appartment_rules, :label=> "Règles de l'appartement" %>
+      <%= f.input :appartment_address, :label=> "Adresse de l'appartement" %>
+      <%= f.input :appartment_photo, :label=> "Photo de l'appartement" %>
       <%= f.input :appartment_photo_cache, as: :hidden %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -36,9 +37,10 @@
     </div>
   <% end %>
 
-  <h3>Cancel my account</h3>
+  <h3>Clôturer mon compte</h3>
 
-  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p>Pas content? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
   <%= link_to "Back", :back %>
+</div>
 </div>
