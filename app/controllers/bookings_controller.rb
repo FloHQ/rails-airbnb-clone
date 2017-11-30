@@ -21,13 +21,15 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new
     @nanny_offer = NannyOffer.find(params[:nanny_offer_id])
+    # 1 : Validé, 2 : en attente, 3 : refusé
+    @booking.status = "2"
     @booking.user = current_user
     @booking.nanny_offer = @nanny_offer
     #TOADD : Price calculation
     if @booking.save
-      redirect_to nanny_offer_booking_path(@nanny_offer, @booking)
+      redirect_to booking_path(@booking)
     else
       render:new
     end
@@ -43,8 +45,8 @@ class BookingsController < ApplicationController
   # end
 
   private
-
-  def booking_params
-#TODO params.require(:booking).permit(:price, :date, :nanny_offer, :user)
-  end
+  # pas besoin de params dans la création, tout est donné par l'URL et le current user
+  # def booking_params
+  #   params.require(:booking).permit(:nanny_offer_id, :user, :status)
+  # end
 end

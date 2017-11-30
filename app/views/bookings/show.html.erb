@@ -1,7 +1,21 @@
-<h1>Bookings#show</h1>
-<p>Ceci est un test pour vérifier que le back fonctionne:</p>
-<p> Client : <%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
-<p> Nanny : <%= @booking.nanny_offer.user.first_name %> <%= @booking.nanny_offer.user.last_name %></p>
-<p> Prix <%= @booking.nanny_offer.price %> </p>
+<div class="container">
+  <div class="booking-confirmation">
+    <h2>Réservation <%= @booking.id %> du <%=  @booking.created_at.strftime("%e/%m/%Y") %> </h2>
+  </div>
+  <% case @booking.status
+      when "1" then status = "<span class='status accepted'>Accepté</span>".html_safe
+      when "2" then status = "<span class='status pending'>En attente</span>".html_safe
+      when "3" then status = "<span class='status declined'>Refusé</span>".html_safe
+    end
+   %>
 
-<p> Date <%= @booking.date %> </p>
+  <h3> <%= status %> </h3>
+  <p> Parent : <%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
+  <p> Nounou : <%= @booking.nanny_offer.user.first_name %> <%= @booking.nanny_offer.user.last_name %></p>
+  <p> Prix : <%= @booking.nanny_offer.price %> </p>
+
+  <p> Du : <%= @booking.nanny_offer.start_date.strftime("%e/%m/%Y") %></p>
+  <p> Au : <%= @booking.nanny_offer.end_date.strftime("%e/%m/%Y") %></p>
+  <p> <%= link_to "Retour à l'offre", nanny_offer_path(@booking.nanny_offer), class: 'btn btn-yours' %></p>
+</div>
+

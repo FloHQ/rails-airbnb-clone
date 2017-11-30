@@ -1,9 +1,9 @@
-<div class="content">
+<div class="content padding-top-navbar">
   <div class="container">
     <% @nanny_offers.each do |u| %>
     <div class="col-xs-12 col-sm-4 col-lg-2">
       <div class="nannycard">
-        <%= link_to(nanny_offer_path(u.id)) do %>
+        <%= link_to(nanny_offer_path(u.id), target: :_blank) do %>
           <% if u.user.profile_picture.present?
               image_url = u.user.profile_picture
             else
@@ -16,8 +16,8 @@
           <div class="nannycard-image" style="background-image: url('<%= cl_image_path image_url, height: 300, width: 400, crop: :fill %>')";>
           </div>
           <div class="nannycard-content">
-            <h4><%= u.user.first_name %> <%= u.user.last_name %> </h4>
-            <p>TEST</p>
+            <h5><%= u.user.first_name %> <%= u.user.last_name %> </h5>
+            <p style="font-weight: lighter;"><%= u.user.short_description%></p>
           </div>
         <% end %>
       </div>

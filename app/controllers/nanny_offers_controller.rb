@@ -1,13 +1,23 @@
 class NannyOffersController < ApplicationController
 
   def index
-    # FIX - Just NannyOffers should appear
-    @users = User.where.not(latitude: nil, longitude: nil)
     users_id_array = []
-    @users.each do |user|
-      users_id_array << user.id
+    @users_complied = User.where.not(latitude: nil, longitude: nil)
+    if current_user
+      @users_legitimacy = User.near(current_user.appartment_address, 2)
+      @users_complied.each do |user|
+        if @users_legitimacy.include?(user)
+          users_id_array << user.id
+        end
+      end
+    else
+      @users_complied.each do |user|
+        users_id_array << user.id
+      end
     end
+
     @nanny_offers = NannyOffer.where(user_id: users_id_array)
+
     @markers = @nanny_offers.map do |nanny_offer|
       {
         lat: nanny_offer.user.latitude,
