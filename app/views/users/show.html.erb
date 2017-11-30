@@ -1,40 +1,49 @@
-<div class="container profil_user">
+<div class="container">
    <div class="row">
-    <div class="col-xs-6 col-sm-8 col-lg-6">
-      <div class="profil">
+    <div class="col-xs-6 col-sm-8 col-lg-12">
+
+      <div class="profil profil_user">
         <h1>Mon profil </h1>
         <p>Prénom       : <%= @user.first_name %></p>
         <p>Nom          : <%= @user.last_name %></p>
         <p>Genre        : <%= @user.gender %></p>
         <p>Téléphone    : <%= @user.phone_number %></p>
         <p>Age          : <%= @user.age %></p>
+         <%= link_to 'Editer le profil', edit_user_registration_path, class: "btn btn-yours" %>
+        <div class="image-user">
+         <%= cl_image_tag @current_user.profile_picture, height: 150, width: 200, crop: :fill %>
+        </div>
       </div>
     </div>
 
-    <div class="col-xs-6 col-sm-8 col-lg-6">
-      <p class="profil">Profile pic  : <%= cl_image_tag @current_user.profile_picture, height: 150, width: 200, crop: :fill %></p>
-    </div>
   </div>
 </div>
 
 <div class="container flat_details">
   <div class="row">
-    <div class="col-xs-6 col-sm-8 col-lg-12">
-      <div class="profil">
-      <p>Appartement  :</p>
-      <p> Equipement  : <%= @user.appartment_equipment %></p>
-      <p> Règles      : <%= @user.appartment_rules %></p>
-      <p> Addresse    : <%= @user.appartment_address %></p>
-      <p> Photo   : <%= cl_image_tag @current_user.appartment_photo, height: 300, width: 400, crop: :fill %></p>
+    <div class="col-lg-6">
+      <div class="card-flat profil">
+        <h1> Appartement</h1>
+        <br>
+        <p> Equipements  : <%= @user.appartment_equipment %></p>
+        <p> Consigne      : <%= @user.appartment_rules %></p>
+        <p> Adresse    : <%= @user.appartment_address %></p>
+      </div>
+    </div>
+      <div class="col-lg-6">
+        <div class="card-flat" style="background-image: linear-gradient(-225deg, rgba(188, 78, 156, 0.3) 90%, rgba(248, 7, 89, 0.3) 90%), url('<%= asset_path "banner-home-photo.jpg"  %>');">
+         <p><%= cl_image_tag @current_user.appartment_photo%></p>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container register">
+<!-- <div class="container register">
   <div class="col-xs-6 col-sm-8 col-lg-6">
   <%= link_to 'Editer le profil', edit_user_registration_path, class: "btn btn-yours" %>
   </div>
-</div>
+</div> -->
+
 
 
