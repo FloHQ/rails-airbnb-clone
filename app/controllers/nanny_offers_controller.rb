@@ -1,20 +1,27 @@
 class NannyOffersController < ApplicationController
 
-  def index
-    users_id_array = []
-    @users_complied = User.where.not(latitude: nil, longitude: nil)
-    if current_user
-      @users_legitimacy = User.near(current_user.appartment_address, 2)
-      @users_complied.each do |user|
-        if @users_legitimacy.include?(user)
+ def index
+      users_id_array = []
+      @users_complied = User.where.not(latitude: nil, longitude: nil)
+      if params[:search_location].present?
+        @users_legitimacy = User.near(params[:search_location], params[:search_distance] || 2, order: :search_distance)
+        @users_complied.each do |user|
+          if @users_legitimacy.include?(user)
+            users_id_array << user.id
+          end
+        end
+      elsif current_user
+        @users_legitimacy = User.near(current_user.appartment_address, 2)
+        @users_complied.each do |user|
+          if @users_legitimacy.include?(user)
+            users_id_array << user.id
+          end
+        end
+      else
+        @users_complied.each do |user|
           users_id_array << user.id
         end
       end
-    else
-      @users_complied.each do |user|
-        users_id_array << user.id
-      end
-    end
 
     @nanny_offers = NannyOffer.where(user_id: users_id_array)
 
