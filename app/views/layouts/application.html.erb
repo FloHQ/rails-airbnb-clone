@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Tabata - Une nounou rapidement</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -14,9 +16,8 @@
     <%= render 'shared/navbar' %>
     <%= yield %>
     <%= render 'shared/footer' %>
-    <%= javascript_include_tag "application" %> <!-- from app/assets/javascripts/application.js -->
-    <%= javascript_pack_tag "application" %>    <!-- from app/javascript/application.js -->
     <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
     <%= javascript_pack_tag "map" %>
+    <%= javascript_pack_tag "application" %>    <!-- from app/javascript/application.js -->
   </body>
 </html>

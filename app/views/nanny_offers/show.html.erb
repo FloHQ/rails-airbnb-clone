@@ -112,10 +112,20 @@
           <% else %>
             <div>
               <div class="col-xs-12 col-md-4 calendar">
+                <h3> Disponibilités de la Nounou</h3>
                 <p> <b>Date de début :</b> <%=  @nanny_offer.start_date %></p>
                 <p> <b>Date de fin   :</b> <%= @nanny_offer.end_date %></p>
-                <p> <b>Prix   :</b> <%= @nanny_offer.price %> €</p>
-                <p><%= link_to "Reserver Maintenant", new_nanny_offer_booking_path(@nanny_offer), class: "btn btn-yours" %></p>
+                <p> <b>Prix par jour :</b> <%= @nanny_offer.price %> €</p>
+
+                <h2> Votre réservation </h2>
+                <%= simple_form_for [@nanny_offer, @booking], method: "post" do |f| %>
+                  <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+                  <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+                   <%= f.input :children %>
+                   <%= f.input :short_description %>
+                   <%= f.button :submit, "Reserver Maintenant", class: "btn btn-yours" %>
+                <% end %>
+          <!--       <p><%#= link_to "Reserver Maintenant", new_nanny_offer_booking_path(@nanny_offer), class: "btn btn-yours" %></p> -->
               </div>
             </div>
           <!-- div>

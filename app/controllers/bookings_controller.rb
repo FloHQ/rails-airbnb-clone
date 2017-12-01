@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
     @nanny_offer = NannyOffer.find(params[:nanny_offer_id])
     # 1 : Validé, 2 : en attente, 3 : refusé
     @booking.status = "2"
@@ -64,7 +64,7 @@ class BookingsController < ApplicationController
   private
 
   # pas besoin de params dans la création, tout est donné par l'URL et le current user
-  # def booking_params
-  #   params.require(:booking).permit(:nanny_offer_id, :user, :status)
-  # end
+  def booking_params
+    params.require(:booking).permit(:nanny_offer_id, :start_date, :end_date)
+  end
 end
