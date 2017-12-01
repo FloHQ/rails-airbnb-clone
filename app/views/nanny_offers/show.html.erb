@@ -25,9 +25,9 @@
   <br>
   <div class="row">
     <div class="col-xs-12 col-md-6">
-      <h3 class="title-nanny-offer-show">
-        <%= @nanny_offer.user.gender === "male" ? "M." : "Mme." %> <%= @nanny_offer.user.last_name  %>
-      </h3>
+      <h2>
+        <strong><%= @nanny_offer.user.gender === "male" ? "M." : "Mme." %> <%= @nanny_offer.user.last_name  %></strong>
+      </h2>
 
       <div >
         <span class="presentation-text">
@@ -35,17 +35,18 @@
         </span>
       </div>
 
-      <%= render "shared/link_page_profil" %>
+      <%#= render "shared/link_page_profil" %>
+      <br>
 
       <div>
         <i class="fa fa-child" aria-hidden="true"></i>
         <span class="custom-icon-text">
           peut garder jusqu'à <%= @nanny_offer.children_capacity %> enfants
-        </span>
+        </span><br>
         <i class="fa fa-graduation-cap" aria-hidden="true"></i>
         <span class="custom-icon-text">
           nounou agréée
-        </span>
+        </span><br>
         <%= image_tag "lift-icon-nanny-offer-show.png", class: "custom-icon" %>
         <span class="custom-icon-text">
           ascenseur disponible
@@ -108,17 +109,17 @@
           <% else %>
             <div>
               <div class="col-xs-12 col-md-4 calendar">
-                <h3> Disponibilités de la Nounou</h3>
+                <h4><strong> Disponibilités de la Nounou</strong></h4>
                 <p> <b>Date de début :</b> <%=  @nanny_offer.start_date %></p>
                 <p> <b>Date de fin   :</b> <%= @nanny_offer.end_date %></p>
                 <p> <b>Prix par jour :</b> <%= @nanny_offer.price %> €</p>
-
-                <h2> Votre réservation </h2>
+                <br>
+                <h4><strong>Votre réservation</strong></h4>
                 <%= simple_form_for [@nanny_offer, @booking], method: "post" do |f| %>
-                  <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-                  <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-                   <%= f.input :children %>
-                   <%= f.input :short_description %>
+                  <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"}, label:"Début" %>
+                  <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"}, label:"Fin" %>
+                   <%= f.input :children, label:"Nombre d'enfants" %>
+                   <%= f.input :short_description, label:"Remarques", placeholder: "Allergies, habitudes alimentaires, médicaments..." %>
                    <%= f.button :submit, "Reserver Maintenant", class: "btn btn-yours" %>
                 <% end %>
           <!--       <p><%#= link_to "Reserver Maintenant", new_nanny_offer_booking_path(@nanny_offer), class: "btn btn-yours" %></p> -->
