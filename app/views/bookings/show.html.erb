@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container mgt-25">
   <div class="booking-confirmation">
-    <h2>Réservation <%= @booking.id %> du <%=  @booking.created_at.strftime("%e/%m/%Y") %> </h2>
+    <h2 class="profil">Réservation <%= @booking.id %> du <%=  @booking.created_at.strftime("%e/%m/%Y") %> </h2>
   </div>
   <% case @booking.status
       when "1" then status = "<span class='status accepted'>Accepté</span>".html_safe
@@ -9,7 +9,7 @@
     end
    %>
 
-  <h3> <%= status %> </h3>
+  <h4> <%= status %> </h4>
   <p> Parent : <%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
   <p> Nounou : <%= @booking.nanny_offer.user.first_name %> <%= @booking.nanny_offer.user.last_name %></p>
   <p> Prix : <%= @booking.nanny_offer.price %> </p>
