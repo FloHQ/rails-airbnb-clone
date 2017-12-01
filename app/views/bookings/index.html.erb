@@ -13,14 +13,23 @@
           when "3" then status = "<span class='status declined'>Refusée</span>".html_safe
           end %>
           <li class="booking-element">
-            <%= cl_image_tag b.user.profile_picture, alt: "", class: "avatar-large" %>
+            <% if b.user.profile_picture.present?
+              image_url_profile_picture = b.user.profile_picture
+            else
+              if b.user.gender === "male"
+                image_url_profile_picture = asset_path 'no_profile_picture_male.jpg'
+              else
+                image_url_profile_picture = asset_path 'no_profile_picture_female.jpg'
+              end
+            end %>
+            <%= cl_image_tag image_url_profile_picture, alt: "", class: "avatar-large" %>
             <div class="booking-element-name">
               <h3> <%= b.user.first_name %> <%= b.user.last_name %> </h3>
               <p></p>
             </div>
             <div class="booking-element-body">
               <p><strong>Dates de réservation : <%= b.nanny_offer.start_date.strftime("%e/%m/%Y") %> - <%= b.nanny_offer.end_date.strftime("%e/%m/%Y") %></strong></p>
-              <p>Description des enfants à garder:<%#= b.short_description %> </p>
+              <p>Informations concernant les enfants à garder:<%= b.short_description %> </p>
             </div>
             <%= link_to "Accepter", booking_path(b, status: "1"), method: :patch, class: "btn btn-yours" %>
             <%= link_to "Refuser", booking_path(b, status: "3"), method: :patch, class: "btn btn-yours" %>
@@ -44,14 +53,23 @@
           when "3" then status = "<span class='status declined'>Refusée</span>".html_safe
           end %>
           <li class="booking-element">
-            <%= cl_image_tag b.nanny_offer.user.profile_picture, alt: "", class: "avatar-large" %>
+            <% if b.nanny_offer.user.profile_picture.present?
+              image_url_profile_picture = b.nanny_offer.user.profile_picture
+            else
+              if b.user.gender === "male"
+                image_url_profile_picture = asset_path 'no_profile_picture_male.jpg'
+              else
+                image_url_profile_picture = asset_path 'no_profile_picture_female.jpg'
+              end
+            end %>
+            <%= cl_image_tag image_url_profile_picture, alt: "", class: "avatar-large" %>
             <div class="booking-element-name">
               <h3> <%= b.nanny_offer.user.first_name %> <%= b.nanny_offer.user.last_name %> </h3>
               <p></p>
             </div>
             <div class="booking-element-body">
               <p><strong>Dates de réservation : <%= b.nanny_offer.start_date.strftime("%e/%m/%Y") %> - <%= b.nanny_offer.end_date.strftime("%e/%m/%Y") %></strong></p>
-              <p>Description des enfants à garder:<%#= b.short_description %> </p>
+              <p>Informations concernant vos enfants:<%= b.short_description %> </p>
             </div>
             <div class="booking-element-status">
               <p class="status pending"><%= status %></p>
