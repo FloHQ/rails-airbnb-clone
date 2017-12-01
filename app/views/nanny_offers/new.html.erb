@@ -10,8 +10,8 @@
             <div class="form-login">
             <%= simple_form_for [@nanny_offer] do |f| %>
               <div class="form-inputs">
-                <%= f.input :start_date, :label=> "Date de début" %>
-                <%= f.input :end_date, :label=> "Date de fin" %>
+                <%= f.input :start_date, :label=> "Date de début", as: :string, required: false, input_html: {class: "datepicker"} %>
+                <%= f.input :end_date, :label=> "Date de fin", as: :string, required: false, input_html: {class: "datepicker"} %>
                 <%= f.input :price, :label=> "Prix par jour (€)" %>
                 <%= f.input :children_capacity, :label=> "Nombre d'enfants maximum" %>
                 <%= f.input :nanny_description, :label=> "Votre description" %>

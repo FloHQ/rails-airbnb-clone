@@ -22,6 +22,10 @@ ActiveRecord::Schema.define(version: 20171201113652) do
     t.bigint "nanny_offer_id"
     t.string "date"
     t.string "status"
+    t.string "start_date"
+    t.string "end_date"
+    t.text "short_description"
+    t.string "children"
     t.index ["nanny_offer_id"], name: "index_bookings_on_nanny_offer_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

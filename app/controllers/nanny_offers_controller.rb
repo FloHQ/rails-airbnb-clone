@@ -59,6 +59,7 @@ class NannyOffersController < ApplicationController
 
   def show
     @nanny_offer = NannyOffer.find(params[:id])
+    @booking = Booking.new
   end
 
   def edit
