@@ -1,3 +1,18 @@
+<div>
+  <%#= BASIC STRUCTURE FOR SEARCH - FRONT TO DESIGN + REFACTORING WITH SIMPLE FORM AND AJAXIFY (OPTIONAL) %>
+  <br>
+  <br>
+<%= form_tag nanny_offers_path, method: :get do %>
+  <%= label :search_location, "Chercher des nounous près de : " %>
+  <%= text_field_tag :search_location, params[:search_location] %>
+
+  <%= label :search_distance, "Distance : " %>
+  <%= text_field_tag :search_distance, params[:search_distance] %>
+
+  <%= submit_tag "Search" %>
+<% end %>
+</div>
+
 <div class="content padding-top-navbar">
   <div class="container">
     <% @nanny_offers.each do |u| %>
