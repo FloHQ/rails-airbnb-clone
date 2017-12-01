@@ -36,15 +36,33 @@ class BookingsController < ApplicationController
   end
 
   # def edit
+
   # end
 
-  # def update
-  # end
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.status = params[:status]
+    @booking.save
+
+    redirect_to bookings_path
+  end
 
   # def destroy
   # end
 
+
+  # def status_translate(status_string)
+  #   case status_string
+  #     when "1" then status = "<span class='status accepted'>Accepté</span>".html_safe
+  #     when "2" then status = "<span class='status pending'>En attente</span>".html_safe
+  #     when "3" then status = "<span class='status declined'>Refusé</span>".html_safe
+  #   end
+
+  #   return status
+  # end
+
   private
+
   # pas besoin de params dans la création, tout est donné par l'URL et le current user
   # def booking_params
   #   params.require(:booking).permit(:nanny_offer_id, :user, :status)
