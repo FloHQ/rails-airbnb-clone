@@ -25,6 +25,8 @@
         <p>Sexe        : <%= @user.gender %></p>
         <p>Téléphone    : <%= @user.phone_number %></p>
         <p>Age          : <%= @user.age %></p>
+        <p> Adresse    : <%= @user.appartment_address %></p>
+
          <%= link_to 'Editer le profil', edit_user_registration_path, class: "btn btn-yours" %>
         <div class="image-user">
          <%= cl_image_tag image_url_profile_picture, height: 150, width: 200, crop: :fill %>
@@ -34,7 +36,7 @@
 
   </div>
 </div>
-
+<% unless current_user.nanny_offers.empty? then %>
 <div class="container flat_details">
   <div class="row">
     <div class="col-lg-6">
@@ -43,7 +45,6 @@
         <br>
         <p> Equipements  : <%= @user.appartment_equipment %></p>
         <p> Consigne      : <%= @user.appartment_rules %></p>
-        <p> Adresse    : <%= @user.appartment_address %></p>
       </div>
     </div>
       <div class="col-lg-6">
@@ -52,7 +53,9 @@
       </div>
     </div>
   </div>
+  <% end %>
 </div>
+<br>
 
 <!-- <div class="container register">
   <div class="col-xs-6 col-sm-8 col-lg-6">
