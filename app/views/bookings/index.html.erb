@@ -1,9 +1,11 @@
 <div class="container">
   <div class="status-booking">
-    <h1>Vos réservations</h1>
+    <br>
+    <h3><strong>Vos réservations</strong></h3>
     <% unless current_user.nanny_offers.empty? then %>
       <div>
-        <h3> Je suis nounou</h3>
+        <h4> Je suis nounou</h4>
+        <p>Liste des clients:</p>
         <ul class='inbox'>
         <% current_user.nanny_offers.each do |o|
           o.bookings.each do |b| %>
@@ -44,7 +46,8 @@
     <% end %>
 
     <div>
-      <h3> Je suis parent </h3>
+      <h4> Je suis parent </h4>
+      <p>Liste des nounous:</p>
       <ul class='inbox'>
         <% current_user.bookings.each do |b| %>
           <% case b.status
