@@ -1,15 +1,22 @@
-<div>
+
+  <% if current_user
+    @placeholder_search_location = current_user.appartment_address
+    else
+    @placeholder_search_location = "Taper ici votre addresse"
+    end %>
+
   <%#= BASIC STRUCTURE FOR SEARCH - FRONT TO DESIGN + REFACTORING WITH SIMPLE FORM AND AJAXIFY (OPTIONAL) %>
   <br>
   <br>
-<%= form_tag nanny_offers_path, method: :get do %>
-  <%= label :search_location, "Chercher des nounous près de : " %>
-  <%= text_field_tag :search_location, params[:search_location] %>
+<div class="form-map">
+<%= form_tag nanny_offers_path, html: {:class => "form-map"}, method: :get do %>
+  <%= label :search_location, "Cherchez des nounous près de : " %>
+  <%= text_field_tag :search_location, params[:search_location], placeholder: @placeholder_search_location %>
 
-  <%= label :search_distance, "Distance : " %>
-  <%= text_field_tag :search_distance, params[:search_distance] %>
+  <%= label :search_distance, "Distance (km): " %>
+  <%= text_field_tag :search_distance, params[:search_distance], placeholder:"2" %>
 
-  <%= submit_tag "Search" %>
+  <%= submit_tag "Search", class: "btn btn-yours" %>
 <% end %>
 </div>
 

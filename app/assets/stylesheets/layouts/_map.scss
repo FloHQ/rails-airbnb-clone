@@ -3,7 +3,23 @@
   height: 100vh;
   position: sticky !important;
   top: 0 !important;
+  border: 5px solid white;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 .content {
   display: flex;
+}
+
+.form-map {
+  text-align: center;
+  label {
+    font-size: 15px;
+  }
+  input::placeholder {
+    font-size: 13px;
+  }
+  input {
+    margin-right: 15px;
+  }
 }
