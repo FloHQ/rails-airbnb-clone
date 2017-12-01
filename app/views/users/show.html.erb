@@ -20,12 +20,12 @@
 
       <div class="profil profil_user">
         <h1>Mon profil </h1>
-        <p>Prénom       : <%= @user.first_name %></p>
-        <p>Nom          : <%= @user.last_name %></p>
-        <p>Sexe        : <%= @user.gender %></p>
-        <p>Téléphone    : <%= @user.phone_number %></p>
-        <p>Age          : <%= @user.age %></p>
-        <p> Adresse    : <%= @user.appartment_address %></p>
+        <p><strong>Prénom       :</strong> <%= @user.first_name %></p>
+        <p><strong>Nom          :</strong> <%= @user.last_name %></p>
+        <p><strong>Sexe        : </strong><%= @user.gender %></p>
+        <p><strong>Téléphone    :</strong> <%= @user.phone_number %></p>
+        <p><strong>Age          :</strong> <%= @user.age %></p>
+        <p><strong> Adresse    : </strong><%= @user.appartment_address %></p>
 
          <%= link_to 'Editer le profil', edit_user_registration_path, class: "btn btn-yours" %>
         <div class="image-user">
@@ -41,10 +41,10 @@
   <div class="row">
     <div class="col-lg-6">
       <div class="card-flat profil">
-        <h1> Appartement</h1>
+        <h1><strong> Appartement</strong></h1>
         <br>
-        <p> Equipements  : <%= @user.appartment_equipment %></p>
-        <p> Consigne      : <%= @user.appartment_rules %></p>
+        <p><strong>Equipements  :</strong> <%= @user.appartment_equipment %></p>
+        <p> <strong> Consigne      : </strong><%= @user.appartment_rules %></p>
       </div>
     </div>
       <div class="col-lg-6">

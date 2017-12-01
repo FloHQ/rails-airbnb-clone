@@ -10,12 +10,14 @@
    %>
 
   <h4> <%= status %> </h4>
-  <p> <b>Parent</b> : <%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
-  <p> <b>Nounou</b> : <%= @booking.nanny_offer.user.first_name %> <%= @booking.nanny_offer.user.last_name %></p>
-  <p> <b>Prix</b>: <%= @booking.nanny_offer.price %> </p>
+  <p> <b>Parent   </b> : <%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
+  <p> <b>Nounou   </b> : <%= @booking.nanny_offer.user.first_name %> <%= @booking.nanny_offer.user.last_name %></p>
+  <p> <b>Prix     </b> : <%= @booking.nanny_offer.price %> </p>
 
-  <p> <b>Du</b> : <%= @booking.nanny_offer.start_date.strftime("%e/%m/%Y") %></p>
-  <p> <b>Au</b> : <%= @booking.nanny_offer.end_date.strftime("%e/%m/%Y") %></p>
+  <p> <b>Du       </b> : <%= @booking.nanny_offer.start_date.strftime("%e/%m/%Y") %></p>
+  <p> <b>Au       </b> : <%= @booking.nanny_offer.end_date.strftime("%e/%m/%Y") %></p>
+  <p> <b>Nombre d'enfants</b> : <%= @booking.children %></p>
+  <p> <b>Remarques</b> : <%= @booking.short_description %></p>
   <p> <%= link_to "Retour à l'offre", nanny_offer_path(@booking.nanny_offer), class: 'btn btn-yours' %></p>
 </div>
 
