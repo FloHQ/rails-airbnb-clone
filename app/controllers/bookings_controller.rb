@@ -65,6 +65,6 @@ class BookingsController < ApplicationController
 
   # pas besoin de params dans la création, tout est donné par l'URL et le current user
   def booking_params
-    params.require(:booking).permit(:nanny_offer_id, :start_date, :end_date)
+    params.require(:booking).permit(:nanny_offer_id, :start_date, :end_date, :short_description)
   end
 end
