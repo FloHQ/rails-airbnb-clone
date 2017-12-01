@@ -3,7 +3,7 @@ class NannyOffersController < ApplicationController
  def index
       users_id_array = []
       @users_complied = User.where.not(latitude: nil, longitude: nil)
-      if params[:search_location].present?
+      if params[:search_location].present? && params[:search_distance].present?
         @users_legitimacy = User.near(params[:search_location], params[:search_distance] || 2, order: :search_distance)
         @users_complied.each do |user|
           if @users_legitimacy.include?(user)
