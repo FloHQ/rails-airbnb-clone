@@ -1,9 +1,10 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(188, 78, 156, 0.3) 90%, rgba(248, 7, 89, 0.3) 90%), url('<%= asset_path "diapers-baby.png"  %>');">
+<div class="profile-page" style="background-image: url('<%= asset_path "supernanny-kid.png"  %>');">
   <div class="banner-content">
     <div class="container">
       <div class="row">
           <div class="col-xs-6 col-sm-8 col-lg-12">
             <div class="title-login">
+            <br>
             <h3>Une modification concernant vos disponibilités ?</h3>
             </div>
             <div class="form-login">
@@ -12,6 +13,9 @@
                 <%= f.input :start_date, :label=> "Date de début"  %>
                 <%= f.input :end_date, :label=> "Date de fin"  %>
                 <%= f.input :price %>
+                <%= f.input :children_capacity, :label=> "Nombre d'enfants maximum" %>
+                <%= f.input :nanny_description, :label=> "Votre description" %>
+                <%= f.input :appartment_description, :label=> "La description de votre appartement" %>
               </div>
               <div class="form-actions">
                 <%= f.submit class: "btn btn-yours", value: "Editer l'offre" %>
@@ -21,5 +25,6 @@
           </div>
       </div>
     </div>
+    <br>
   </div>
 </div>
