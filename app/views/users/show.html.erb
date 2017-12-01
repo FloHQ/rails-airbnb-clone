@@ -1,18 +1,4 @@
-<% if current_user.profile_picture.present?
-    image_url_profile_picture = current_user.profile_picture
-  else
-    if current_user.gender === "male"
-      image_url_profile_picture = asset_path 'no_profile_picture_male.jpg'
-    else
-      image_url_profile_picture = asset_path 'no_profile_picture_female.jpg'
-    end
-    end %>
 
-  <% if current_user.appartment_photo.present?
-    image_url_appartment_photo = current_user.appartment_photo
-  else
-    image_url_appartment_photo = asset_path 'no_appartment_photo.jpg'
-    end %>
 <div class="container">
    <div class="row">
     <div class="col-xs-6 col-sm-8 col-lg-12">
@@ -26,7 +12,7 @@
         <p>Age          : <%= @user.age %></p>
          <%= link_to 'Editer le profil', edit_user_registration_path, class: "btn btn-yours" %>
         <div class="image-user">
-         <%= cl_image_tag image_url_profile_picture, height: 100, width: 100, crop: :fill, radius: :max, background: "#F4F4F4" %>
+         <%= cl_image_tag @current_user.profile_picture, height: 150, width: 200, crop: :fill %>
         </div>
       </div>
     </div>
@@ -36,13 +22,19 @@
 
 <div class="container flat_details">
   <div class="row">
-    <div class="col-xs-6 col-sm-8 col-lg-12">
-      <div class="profil">
-      <p>Appartement  :</p>
-      <p> Equipement  : <%= @user.appartment_equipment %></p>
-      <p> Règles      : <%= @user.appartment_rules %></p>
-      <p> Adresse    : <%= @user.appartment_address %></p>
-      <p> Photo   : <%= cl_image_tag @current_user.appartment_photo, height: 300, width: 400, crop: :fill %></p>
+    <div class="col-lg-6">
+      <div class="card-flat profil">
+        <h1> Appartement</h1>
+        <br>
+        <p> Equipements  : <%= @user.appartment_equipment %></p>
+        <p> Consigne      : <%= @user.appartment_rules %></p>
+        <p> Adresse    : <%= @user.appartment_address %></p>
+      </div>
+    </div>
+      <div class="col-lg-6">
+        <div class="card-flat" style="background-image: linear-gradient(-225deg, rgba(188, 78, 156, 0.3) 90%, rgba(248, 7, 89, 0.3) 90%), url('<%= asset_path "banner-home-photo.jpg"  %>');">
+         <p><%= cl_image_tag @current_user.appartment_photo%></p>
+        </div>
       </div>
     </div>
   </div>
@@ -53,6 +45,3 @@
   <%= link_to 'Editer le profil', edit_user_registration_path, class: "btn btn-yours" %>
   </div>
 </div> -->
-
-
-
